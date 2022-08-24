@@ -25,6 +25,7 @@ using (var client = new AroFloSharpClient(options))
 # Getting Started
 
 AroFloSharp is a [AroFlo](https://wwww.aroflo.com) API client library for .NET and is available on NuGet:
+
 `
 dotnet add package AroFloSharp
 `
