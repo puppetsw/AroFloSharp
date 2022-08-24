@@ -4,15 +4,7 @@ The AroFloSharp library provides easy access to the [AroFlo](https://www.aroflo.
 
 # Example
 ```cs
-var options = new AroFloSharpOptions
-{
-    SecretKey = "",
-    UEncode = "",
-    PEncode = "",
-    OrgEncode = ""
-};
-
-using (var client = new AroFloSharpClient(options))
+using (var client = new AroFloSharpClient())
 {
     var projects = await client.GetProjectsAsync();
 }
