@@ -48,9 +48,9 @@ Studio 2022 installed - you can download the Community edition from
 `dotnet build AroFloSharp.Client`
 
 # Contribute
-Visit the [Contributor Guidelines](https://github.com/puppetsw/AroFloSharp/blob/main/CONTRIBUTING.md)
+Visit the [Contributor Guidelines](https://github.com/puppetsw/AroFloSharp/blob/master/CONTRIBUTING.md)
 for more details. All contributors are expected to follow our
-[Code of Conduct](https://github.com/puppetsw/AroFloSharp/blob/main/CODE_OF_CONDUCT.md).
+[Code of Conduct](https://github.com/puppetsw/AroFloSharp/blob/master/CODE_OF_CONDUCT.md).
 
 # Copyright and License
 
