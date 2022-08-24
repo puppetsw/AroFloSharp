@@ -19,16 +19,7 @@ namespace AroFloSharp.Client
         public AroFloSharpClient(Action<AroFloSharpOptions> options = null)
         {
             _options = new AroFloSharpOptions();
-
-            if (options == null)
-            {
-                _options.Timeout = TimeSpan.FromSeconds(1);
-            }
-            else
-            {
-                options(_options);
-            }
-
+            options?.Invoke(_options);
             _httpClient.Timeout = _options.Timeout;
         }
 
