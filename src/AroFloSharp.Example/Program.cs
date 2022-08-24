@@ -15,7 +15,6 @@ namespace AroFloSharp.Example
                        options.UEncode = "PjZPQjtBSEM7RihdOjI6JDJMKlwgJiohQ0AxTVw4Klg9Jzk6NDUpWiwK";
                        options.PEncode = "cTdod3FkODFlNnI0TGVk";
                        options.OrgEncode = "JSc6TyBQLFAgCg==";
-
                    }))
             {
                 var projects = await client.GetProjectsAsync();

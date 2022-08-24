@@ -23,12 +23,16 @@ namespace AroFloSharp.Client
             _httpClient.Timeout = _options.Timeout;
         }
 
-        public async Task<IList<Project>> GetProjectsAsync()
+        public async Task<IList<Project>> GetProjectsAsync(string filter = "")
         {
             var projects = new List<Project>();
 
             int page = 1;
-            const string requestString = "zone=projects&page=";
+            string requestString = "zone=projects&page=";
+
+            // build request string.
+            
+
             bool morePages = false;
             var uri = new Uri($"{Constants.AROFLO_API_URL}?{requestString}{page}");
 
