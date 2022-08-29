@@ -20,7 +20,7 @@ The AroFloSharp library provides easy access to the [AroFlo](https://www.aroflo.
 
 # Getting Started
 
-AroFloSharp is a [AroFlo](https://wwww.aroflo.com) API client library for .NET and is available on NuGet:
+AroFloSharp is a [AroFlo](https://wwww.aroflo.com) API client library for .NET and *will be* available on NuGet:
 
 `
 dotnet add package AroFloSharp
