@@ -4,6 +4,7 @@ public enum ParameterType
 {
     Zone,
     Page,
+    PageSize,
     Where,
     Order
 }
