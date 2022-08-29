@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Security.Policy;
 using AroFloSharp.Client.Enums;
 using AroFloSharp.Client.Parameters;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -67,6 +68,20 @@ public class ParameterTests
         var result = parameters.ToString();
 
         Assert.AreEqual(expected, result);
+    }
+
+    [TestMethod]
+    public void Test_parameter_collection_users_and_or_ToString()
+    {
+        var parameters = new ParameterCollection();
+        parameters.Add(new ZoneParameter(AroFloZone.Users));
+        parameters.Add(new AndParameter("givennames", "steve", ComparisonOperator.Equal));
+        parameters.Add(new OrParameter("archived", "true", ComparisonOperator.Equal));
+
+        var expected = "zone=users&where=and|givennames|=|steve&where=or|archived|=|true";
+        var result = parameters.ToString();
+
+        Assert.AreEqual(expected, Uri.UnescapeDataString(result));
     }
 
     [TestMethod]

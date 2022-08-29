@@ -18,8 +18,11 @@ public class AroFloSharpClient : IDisposable
         _httpClient.Timeout = _config.Timeout;
     }
 
-    public async Task<string> GetResponseAsync(ParameterCollection parameters)
+    public async Task<string> GetResponseAsync(Action<ParameterCollection> parameterCollection)
     {
+        var parameters = new ParameterCollection();
+        parameterCollection?.Invoke(parameters);
+
         using var request = new RequestMessage();
         request.Parameters.AddRange(parameters);
         request.RequestUri = new Uri($"{Constants.AROFLO_API_URL}?{request.Parameters}");

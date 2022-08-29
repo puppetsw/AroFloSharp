@@ -17,6 +17,7 @@ public class ZoneParameter : ParameterBase
         _zones.Add(AroFloZone.Clients, Constants.CLIENTS);
         _zones.Add(AroFloZone.Locations, Constants.LOCATIONS);
         _zones.Add(AroFloZone.Tasks, Constants.TASKS);
+        _zones.Add(AroFloZone.Users, Constants.USERS);
     }
 
     public override string ToString() => $"{ParameterTypes[Type]}={Uri.EscapeDataString(_zones[_zone])}";

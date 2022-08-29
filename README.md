@@ -2,14 +2,18 @@
 
 The AroFloSharp library provides easy access to the [AroFlo](https://www.aroflo.com) API.
 
-# Example
-```cs
-using (var client = new AroFloSharpClient())
-{
-    var projects = await client.GetProjectsAsync();
-}
-```
-
+# Contents
+1. [Supported Platforms](#supported-platforms)
+2. [Getting Started](#getting-started)
+3. [Examples](#examples)
+   1. [Usage](#usage)
+   2. [Paging](#paging)
+   3. [Where](#where)
+   4. [Order By](#order-by)
+4. [Documentation](#documentation)
+5. [Build](#build)
+6. [Contribute](#contribute)
+7. [Copyright and License](#copyright-and-license)
 
 # Supported Platforms
 * .NET Framework 4.6.1 or greater.
@@ -22,9 +26,67 @@ AroFloSharp is a [AroFlo](https://wwww.aroflo.com) API client library for .NET a
 dotnet add package AroFloSharp
 `
 
+# Examples
+
+## Usage
+
+```cs
+using var client = new AroFloSharpClient();
+var response = await client.GetResponseAsync(
+                parameters =>
+                {
+                    parameters.Add(new ZoneParameter(AroFloZone.Projects));
+                    parameters.Add(new PageParameter(1));
+                });
+```
+
+The above example will generate the following AroFlo request string. `zone=projects&page=1`
+
+## Paging
+
+If no page number parameter is provided, all results will be returned. By default the [AroFlo API](https://apidocs.aroflo.com/?version=latest#paging-in-aroflo-api) returns 500 records per request.
+
+### TODO: Add PageSize parameter
+
+If you compare `currentpageresults` to `maxpageresults` you will know if you have to ask for the next page, incrementing pagenumber for the next query. If the value is less than the current maximum you have received the last set of data.
+
+## Where
+
+The `WhereParameters` `AndParameter` and `OrParameter` can be used to filter the request. The AroFlo API is still in development so not all "Zones" have a where filter that can be applied. 
+
+```cs
+parameters.Add(new ZoneParameter(AroFloZone.Users));
+parameters.Add(new AndParameter("givennames", "steve", ComparisonOperator.Equal));
+parameters.Add(new OrParameter("archived", "true", ComparisonOperator.Equal));
+```
+
+The above example would generate the following string.
+`zone=users&where=and|givennames|=|steve&where=or|archived|=|true`
+
+`WhereParameters` can also have sub parameters that can be used for more complex comparisons.
+
+```cs
+parameters.Add(new ZoneParameter(AroFloZone.Tasks));
+
+var where1 = new AndParameter("clientname", "ClientA", ComparisonOperator.Equal);
+where1.Parameters.Add(new OrParameter("clientname", "ClientB", ComparisonOperator.Equal));
+
+parameters.Add(where1);
+parameters.Add(new AndParameter("daterequested", "2017-12-01", ComparisonOperator.Equal));
+```
+
+The above example would generate the following string.
+`zone=tasks&where=and|(|clientname|=|ClientA&where=or|clientname|=|ClientB|)&where=and|daterequested|=|2017-12-01`
+
+## Order By
+
+```cs
+parameters.Add(new OrderParameter("givennames", SortOrder.Ascending));
+```
+
 # Documentation
 
-No documentation exists as of yet. But feel free to contribute!
+No documentation exists. But feel free to contribute!
 
 # Build
 

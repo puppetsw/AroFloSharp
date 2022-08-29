@@ -24,10 +24,10 @@ namespace AroFloSharp.Tests
                 options.OrgEncode = Credentials.ORG_ENCODE;
             });
             var data = await client.GetResponseAsync(
-                new ParameterCollection
+                parameters =>
                 {
-                    new ZoneParameter(AroFloZone.Projects),
-                    new PageParameter(1)
+                    parameters.Add(new ZoneParameter(AroFloZone.Projects));
+                    parameters.Add(new PageParameter(1));
                 });
 
             Console.WriteLine(data);

@@ -46,4 +46,7 @@ public static class Constants
     public const string LOCATIONS = "locations";
 
     public const string TASKS = "tasks";
+
+    public const string USERS = "users";
+
 }

@@ -5,5 +5,6 @@ public enum AroFloZone
     Projects,
     Clients,
     Locations,
-    Tasks
+    Tasks,
+    Users
 }
