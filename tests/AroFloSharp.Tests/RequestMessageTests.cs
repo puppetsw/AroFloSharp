@@ -10,7 +10,6 @@ namespace AroFloSharp.Tests
     [TestClass]
     public class RequestMessageTests
     {
-
         [TestMethod]
         public async Task Test_request_message()
         {
@@ -23,12 +22,11 @@ namespace AroFloSharp.Tests
                 options.PEncode = Credentials.P_ENCODE;
                 options.OrgEncode = Credentials.ORG_ENCODE;
             });
-            var data = await client.GetResponseAsync(
-                parameters =>
-                {
-                    parameters.Add(new ZoneParameter(AroFloZone.Projects));
-                    parameters.Add(new PageParameter(1));
-                });
+            var data = await client.GetResponseAsync(parameters =>
+            {
+                parameters.Add(new ZoneParameter(AroFloZone.Projects));
+                parameters.Add(new PageParameter(1));
+            });
 
             Console.WriteLine(data);
 
