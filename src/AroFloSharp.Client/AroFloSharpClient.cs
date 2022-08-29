@@ -1,70 +1,38 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.IO;
 using System.Net.Http;
-using System.Threading;
 using System.Threading.Tasks;
-using System.Xml.Serialization;
-using AroFloSharp.Client.Models;
-using AroFloSharp.Client.Responses;
+using AroFloSharp.Client.Parameters;
+using AroFloSharp.Client.Request;
 
-namespace AroFloSharp.Client
+namespace AroFloSharp.Client;
+
+public class AroFloSharpClient : IDisposable
 {
-    public class AroFloSharpClient : IDisposable
+    private readonly AroFloSharpConfig _config;
+    private readonly HttpClient _httpClient = new();
+
+    public AroFloSharpClient(Action<AroFloSharpConfig> config = null)
     {
-        private readonly AroFloSharpOptions _options;
-        private readonly HttpClient _httpClient = new HttpClient();
-        private readonly CancellationTokenSource _cts = new CancellationTokenSource();
+        _config = new AroFloSharpConfig();
+        config?.Invoke(_config);
+        _httpClient.Timeout = _config.Timeout;
+    }
 
-        public AroFloSharpClient(Action<AroFloSharpOptions> options = null)
-        {
-            _options = new AroFloSharpOptions();
-            options?.Invoke(_options);
-            _httpClient.Timeout = _options.Timeout;
-        }
+    public async Task<string> GetResponseAsync(ParameterCollection parameters)
+    {
+        using var request = new RequestMessage();
+        request.Parameters.AddRange(parameters);
+        request.RequestUri = new Uri($"{Constants.AROFLO_API_URL}?{request.Parameters}");
+        request.AddDefaultHeaders(_config);
 
-        public async Task<IList<Project>> GetProjectsAsync(string filter = "")
-        {
-            var projects = new List<Project>();
+        var response = await _httpClient.SendAsync(request);
+        var responseString = await response.Content.ReadAsStringAsync();
 
-            int page = 1;
-            string requestString = "zone=projects&page=";
+        return responseString;
+    }
 
-            // build request string.
-            
-
-            bool morePages = false;
-            var uri = new Uri($"{Constants.AROFLO_API_URL}?{requestString}{page}");
-
-            _httpClient.BaseAddress = uri;
-            do
-            {
-                using (var request = new HttpRequestMessage(HttpMethod.Get, uri))
-                {
-                    request.GenerateHeaders(_options, requestString, page);
-                    var response = await _httpClient.SendAsync(request, _cts.Token);
-
-                    var responseString = await response.Content.ReadAsStringAsync();
-
-                    var xml = new XmlSerializer(typeof(AroFloResponse<ProjectZoneResponse>));
-                    using (var reader = new StringReader(responseString))
-                    {
-                        var data = (AroFloResponse<ProjectZoneResponse>)xml.Deserialize(reader);
-                        projects.AddRange(data.ZoneResponse.Results);
-                        morePages = data.ZoneResponse.IsMorePages;
-                        page++;
-                    }
-                }
-            } while (morePages);
-
-            return projects;
-        }
-
-
-        public void Dispose()
-        {
-            _cts.Dispose();
-            _httpClient?.Dispose();
-        }
+    public void Dispose()
+    {
+        _httpClient?.Dispose();
     }
 }

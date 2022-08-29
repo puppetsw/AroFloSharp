@@ -2,7 +2,7 @@
 using System.ComponentModel;
 using System.Xml.Serialization;
 
-namespace AroFloSharp.Client.Models
+namespace AroFloSharp.Serialization.Models
 {
     public class Location
     {

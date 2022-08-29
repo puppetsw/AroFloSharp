@@ -1,6 +1,6 @@
 ﻿using System.Xml.Serialization;
 
-namespace AroFloSharp.Client.Models
+namespace AroFloSharp.Serialization.Models
 {
     public class Project
     {
@@ -8,7 +8,7 @@ namespace AroFloSharp.Client.Models
         public string Status { get; set; }
 
         [XmlElement("client")]
-        public Client Client { get; set; }
+        public Serialization.Models.Client Client { get; set; }
 
         [XmlElement("location")]
         public Location Location { get; set; }

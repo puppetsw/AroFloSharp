@@ -4,16 +4,14 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{4ABF861B-C903-48B4-8D41-8955B6EE1BEF}</ProjectGuid>
+    <ProjectGuid>{A26FF128-A3E1-4ECE-AD17-741442A840B7}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>AroFloSharp.Client</RootNamespace>
-    <AssemblyName>AroFloSharp.Client</AssemblyName>
+    <RootNamespace>AroFloSharp.Serialization</RootNamespace>
+    <AssemblyName>AroFloSharp.Serialization</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
-    <NuGetPackageImportStamp>
-    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -23,7 +21,6 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <LangVersion>latest</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -32,12 +29,13 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <LangVersion>latest</LangVersion>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Numerics" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -46,37 +44,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AroFloSharpClient.cs" />
-    <Compile Include="AroFloSharpConfig.cs" />
-    <Compile Include="Constants.cs" />
-    <Compile Include="Credentials.cs" />
-    <Compile Include="Enums\DataFormat.cs" />
-    <Compile Include="Enums\AroFloZone.cs" />
-    <Compile Include="Helpers\Ensure.cs" />
-    <Compile Include="Parameters\AndParameter.cs" />
-    <Compile Include="Enums\ComparisonOperator.cs" />
-    <Compile Include="Parameters\OrderParameter.cs" />
-    <Compile Include="Parameters\OrParameter.cs" />
-    <Compile Include="Parameters\ParameterCollection.cs" />
-    <Compile Include="Enums\StatementOperator.cs" />
-    <Compile Include="Enums\ParameterType.cs" />
-    <Compile Include="Parameters\WhereParameterBase.cs" />
-    <Compile Include="Parameters\PageParameter.cs" />
-    <Compile Include="Parameters\ZoneParameter.cs" />
+    <Compile Include="Models\Client.cs" />
+    <Compile Include="Models\Location.cs" />
+    <Compile Include="Models\Project.cs" />
+    <Compile Include="Models\ProjectType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Request\RequestMessage.cs" />
-    <Compile Include="Request\RequestHeaders.cs" />
-    <Compile Include="Enums\SortOrder.cs" />
-    <Compile Include="Parameters\ParameterBase.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Response\" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\AroFloSharp.Serialization\AroFloSharp.Serialization.csproj">
-      <Project>{a26ff128-a3e1-4ece-ad17-741442a840b7}</Project>
-      <Name>AroFloSharp.Serialization</Name>
-    </ProjectReference>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

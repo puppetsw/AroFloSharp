@@ -1,15 +1,16 @@
 ﻿using System.Reflection;
+using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("AroFloSharp.Client")]
-[assembly: AssemblyDescription("C# AroFlo API Client")]
+[assembly: AssemblyTitle("AroFloSharp.Serialization")]
+[assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("AroFloSharp")]
-[assembly: AssemblyCopyright("Copyright © 2022")]
+[assembly: AssemblyProduct("AroFloSharp.Serialization")]
+[assembly: AssemblyCopyright("Copyright ©  2022")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -19,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("4abf861b-c903-48b4-8d41-8955b6ee1bef")]
+[assembly: Guid("a26ff128-a3e1-4ece-ad17-741442a840b7")]
 
 // Version information for an assembly consists of the following four values:
 //
