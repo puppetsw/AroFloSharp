@@ -31,22 +31,31 @@ dotnet add package AroFloSharp
 ## Usage
 
 ```cs
-using var client = new AroFloSharpClient();
+using var client = new AroFloSharpClient(
+options =>
+{
+    options.SecretKey = Credentials.SECRET_KEY;
+    options.UEncode = Credentials.U_ENCODE;
+    options.PEncode = Credentials.P_ENCODE;
+    options.OrgEncode = Credentials.ORG_ENCODE;
+});
 var response = await client.GetResponseAsync(
-                parameters =>
-                {
-                    parameters.Add(new ZoneParameter(AroFloZone.Projects));
-                    parameters.Add(new PageParameter(1));
-                });
+parameters =>
+{
+    parameters.Add(new ZoneParameter(AroFloZone.Projects));
+    parameters.Add(new PageParameter(1));
+});
 ```
 
-The above example will generate the following AroFlo request string. `zone=projects&page=1`
+The above example will generate the following AroFlo request string. `zone=projects&page=1` The API keys can be accessed after setting up and being approved for the AroFlo API access.
 
 ## Paging
 
 If no page number parameter is provided, all results will be returned. By default the [AroFlo API](https://apidocs.aroflo.com/?version=latest#paging-in-aroflo-api) returns 500 records per request.
 
-### TODO: Add PageSize parameter
+```cs
+parameters.Add(new PageSizeParameter(10));
+```
 
 If you compare `currentpageresults` to `maxpageresults` you will know if you have to ask for the next page, incrementing pagenumber for the next query. If the value is less than the current maximum you have received the last set of data.
 
