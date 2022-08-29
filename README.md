@@ -52,7 +52,7 @@ If you compare `currentpageresults` to `maxpageresults` you will know if you hav
 
 ## Where
 
-The `WhereParameters` `AndParameter` and `OrParameter` can be used to filter the request. The AroFlo API is still in development so not all "Zones" have a where filter that can be applied. 
+The `AndParameter` and `OrParameter` can be used to filter the request. The AroFlo API is still in development so not all "Zones" have a where filter that can be applied. 
 
 ```cs
 parameters.Add(new ZoneParameter(AroFloZone.Users));
