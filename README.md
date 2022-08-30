@@ -32,12 +32,12 @@ dotnet add package AroFloSharp
 
 ```cs
 using var client = new AroFloSharpClient(
-options =>
+config =>
 {
-    options.SecretKey = Credentials.SECRET_KEY;
-    options.UEncode = Credentials.U_ENCODE;
-    options.PEncode = Credentials.P_ENCODE;
-    options.OrgEncode = Credentials.ORG_ENCODE;
+    config.SecretKey = Credentials.SECRET_KEY;
+    config.UEncode = Credentials.U_ENCODE;
+    config.PEncode = Credentials.P_ENCODE;
+    config.OrgEncode = Credentials.ORG_ENCODE;
 });
 var response = await client.GetResponseAsync(
 parameters =>
@@ -45,6 +45,9 @@ parameters =>
     parameters.Add(new ZoneParameter(AroFloZone.Projects));
     parameters.Add(new PageParameter(1));
 });
+
+using serializer = new JsonNewtonsoftSerializer();
+var projects = serializer.Deserialize<Response<ProjectZoneResponse>>(response);
 ```
 
 The above example will generate the following AroFlo request string. `zone=projects&page=1` The API keys can be accessed after setting up and being approved for the AroFlo API access.
