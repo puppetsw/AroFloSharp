@@ -2,7 +2,7 @@
 
 namespace AroFloSharp.Client.Enums;
 
-public enum AroFloStatus
+public enum Status
 {
     // -99999 Authentication Failed - Signatures do not match	You have an error in the way you are generating you HMAC signature. Refer to the comments in the Pre-Req scripts of this PostMan Collection to ensure you are following all requried steps.
     //        Authentication Failed - AroFlo API setup is invalid	Most likely caused by not generating the auth credentials correctly by forgetting to save after generating the Secret Key. Ensure you copy this key BEFORE you save as it is only shown once

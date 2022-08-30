@@ -14,7 +14,7 @@ public static class RequestHeaders
     private const string ACCEPT_HEADER = "Accept";
     private const string AF_DATE_TIME_UTC_HEADER = "afdatetimeutc";
 
-    public static void AddDefaultHeaders(this RequestMessage requestMessage, AroFloSharpConfig config)
+    public static void AddDefaultHeaders(this RequestMessage requestMessage, Configuration config)
     {
         var authString = new StringBuilder();
         authString.Append($"uencoded={Uri.EscapeDataString(config.UEncode)}");

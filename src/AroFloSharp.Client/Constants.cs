@@ -63,13 +63,13 @@ public static class Constants
     public const string DESCENDING = "desc";
 
     // Enum Lookups
-    public static readonly Dictionary<AroFloZone, string> Zones = new()
+    public static readonly Dictionary<Zone, string> Zones = new()
     {
-        {AroFloZone.Projects, PROJECTS},
-        {AroFloZone.Clients, CLIENTS},
-        {AroFloZone.Locations, LOCATIONS},
-        {AroFloZone.Tasks, TASKS},
-        {AroFloZone.Users, USERS}
+        {Zone.Projects, PROJECTS},
+        {Zone.Clients, CLIENTS},
+        {Zone.Locations, LOCATIONS},
+        {Zone.Tasks, TASKS},
+        {Zone.Users, USERS}
     };
 
     public static readonly Dictionary<ParameterType, string> ParameterTypes = new()

@@ -7,7 +7,7 @@ namespace AroFloSharp.Client.Response;
 public class RequestResponse
 {
     [XmlElement("status")]
-    public AroFloStatus Status { get; set; }
+    public Status Status { get; set; }
 
     [XmlElement("statusmessage")]
     public string StatusMessage { get; set; }

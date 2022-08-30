@@ -13,16 +13,16 @@ namespace AroFloSharp.Client;
 
 public class AroFloSharpClient : IDisposable
 {
-    private readonly AroFloSharpConfig _config;
+    private readonly Configuration _config;
     private readonly HttpClient _httpClient = new();
 
-    public AroFloStatus Status { get; private set; }
+    public Status Status { get; private set; }
 
     public string StatusMessage { get; private set; } = string.Empty;
 
-    public AroFloSharpClient(Action<AroFloSharpConfig>? config = null)
+    public AroFloSharpClient(Action<Configuration>? config = null)
     {
-        _config = new AroFloSharpConfig();
+        _config = new Configuration();
         config?.Invoke(_config);
         _httpClient.Timeout = _config.Timeout;
     }

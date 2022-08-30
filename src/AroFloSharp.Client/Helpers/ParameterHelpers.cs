@@ -5,7 +5,7 @@ namespace AroFloSharp.Client.Helpers;
 
 public static class ParameterHelpers
 {
-    public static ZoneParameter AddZone(this ParameterCollection parameterCollection, AroFloZone zone)
+    public static ZoneParameter AddZone(this ParameterCollection parameterCollection, Zone zone)
     {
         var zoneParameter = new ZoneParameter(zone);
         parameterCollection.Add(zoneParameter);

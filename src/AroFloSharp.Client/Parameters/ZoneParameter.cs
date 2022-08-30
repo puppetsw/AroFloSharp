@@ -6,9 +6,9 @@ namespace AroFloSharp.Client.Parameters;
 
 public class ZoneParameter : ParameterBase
 {
-    private readonly AroFloZone _zone;
+    private readonly Zone _zone;
 
-    public ZoneParameter(AroFloZone zone) : base(ParameterType.Zone)
+    public ZoneParameter(Zone zone) : base(ParameterType.Zone)
     {
         _zone = zone;
     }

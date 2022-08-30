@@ -1,6 +1,6 @@
 ﻿namespace AroFloSharp.Client.Enums;
 
-public enum AroFloZone
+public enum Zone
 {
     Projects,
     Clients,

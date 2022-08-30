@@ -13,7 +13,7 @@ public class RequestMessageTests
     [Test]
     public async Task Test_request_message_xml()
     {
-        using var client = new AroFloSharpClient(options =>
+        using var client = new Client.AroFloSharpClient(options =>
         {
             options.Timeout = TimeSpan.FromSeconds(5);
             options.DataFormat = DataFormat.Xml;
@@ -24,19 +24,19 @@ public class RequestMessageTests
         });
         var data = await client.GetResponseAsync(parameters =>
         {
-            parameters.Add(new ZoneParameter(AroFloZone.Projects));
+            parameters.Add(new ZoneParameter(Zone.Projects));
             parameters.Add(new PageParameter(1));
         });
 
         Console.WriteLine(data);
-        Assert.IsTrue(client.Status == AroFloStatus.LoginOk);
+        Assert.IsTrue(client.Status == Status.LoginOk);
         Assert.IsTrue(data != "");
     }
 
     [Test]
     public async Task Test_request_message_json()
     {
-        using var client = new AroFloSharpClient(options =>
+        using var client = new Client.AroFloSharpClient(options =>
         {
             options.Timeout = TimeSpan.FromSeconds(5);
             options.DataFormat = DataFormat.Json;
@@ -47,12 +47,12 @@ public class RequestMessageTests
         });
         var data = await client.GetResponseAsync(parameters =>
         {
-            parameters.Add(new ZoneParameter(AroFloZone.Projects));
+            parameters.Add(new ZoneParameter(Zone.Projects));
             parameters.Add(new PageParameter(1));
         });
 
         Console.WriteLine(data);
-        Assert.IsTrue(client.Status == AroFloStatus.LoginOk);
+        Assert.IsTrue(client.Status == Status.LoginOk);
         Assert.IsTrue(data != "");
     }
 }

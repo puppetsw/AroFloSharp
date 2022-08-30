@@ -27,7 +27,7 @@ public class SerializationTests
 
         var data = await client.GetResponseAsync(parameters =>
         {
-            parameters.AddZone(AroFloZone.Projects);
+            parameters.AddZone(Zone.Projects);
             // parameters.AddWhereAnd("projectnunber", "20", ComparisonOperator.Equal);
             // parameters.Add(new ZoneParameter(AroFloZone.Projects));
             // parameters.Add(new AndParameter("projectnumber", "20", ComparisonOperator.Equal));

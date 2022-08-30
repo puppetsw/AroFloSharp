@@ -23,7 +23,7 @@ public class ParameterTests
     [Test]
     public void Test_zone_parameter_ToString()
     {
-        var parameter = new ZoneParameter(AroFloZone.Projects);
+        var parameter = new ZoneParameter(Zone.Projects);
 
         var expected = "zone=projects";
         var result = parameter.ToString();
@@ -47,7 +47,7 @@ public class ParameterTests
     {
         var parameters = new ParameterCollection();
 
-        parameters.Add(new ZoneParameter(AroFloZone.Projects));
+        parameters.Add(new ZoneParameter(Zone.Projects));
         parameters.Add(new PageParameter(1));
 
         var expected = "zone=projects&page=1";
@@ -60,7 +60,7 @@ public class ParameterTests
     public void Test_parameter_collection_zone_page_order_ToString()
     {
         var parameters = new ParameterCollection();
-        parameters.Add(new ZoneParameter(AroFloZone.Projects));
+        parameters.Add(new ZoneParameter(Zone.Projects));
         parameters.Add(new PageParameter(1));
         parameters.Add(new OrderParameter("lastupdateutc", SortOrder.Ascending));
 
@@ -74,7 +74,7 @@ public class ParameterTests
     public void Test_parameter_collection_users_and_or_ToString()
     {
         var parameters = new ParameterCollection();
-        parameters.Add(new ZoneParameter(AroFloZone.Users));
+        parameters.Add(new ZoneParameter(Zone.Users));
         parameters.Add(new AndParameter("givennames", "steve", ComparisonOperator.Equal));
         parameters.Add(new OrParameter("archived", "true", ComparisonOperator.Equal));
 
@@ -89,7 +89,7 @@ public class ParameterTests
     {
         var parameters = new ParameterCollection();
 
-        parameters.Add(new ZoneParameter(AroFloZone.Tasks));
+        parameters.Add(new ZoneParameter(Zone.Tasks));
 
         var where1 = new AndParameter("clientname", "ClientA", ComparisonOperator.Equal);
         where1.Parameters.Add(new OrParameter("clientname", "ClientB", ComparisonOperator.Equal));
@@ -108,7 +108,7 @@ public class ParameterTests
     {
         var parameters = new ParameterCollection();
 
-        parameters.AddZone(AroFloZone.Tasks);
+        parameters.AddZone(Zone.Tasks);
         parameters.AddWhereAnd("clientname", "ClientA").AddWhereOr("clientname", "ClientB");
         parameters.AddWhereAnd("daterequested", "2017-12-01");
 

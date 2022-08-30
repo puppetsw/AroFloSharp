@@ -3,7 +3,7 @@ using AroFloSharp.Client.Enums;
 
 namespace AroFloSharp.Client;
 
-public class AroFloSharpConfig
+public class Configuration
 {
     public TimeSpan Timeout { get; set; } = TimeSpan.FromSeconds(5);
 
