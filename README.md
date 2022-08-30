@@ -16,7 +16,7 @@ The AroFloSharp library provides easy access to the [AroFlo](https://www.aroflo.
 7. [Copyright and License](#copyright-and-license)
 
 # Supported Platforms
-* .NET Framework 4.6.1 or greater.
+* .NET Standard 2.0
 
 # Getting Started
 
