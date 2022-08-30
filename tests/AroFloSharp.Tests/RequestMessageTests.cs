@@ -16,7 +16,7 @@ namespace AroFloSharp.Tests
             using var client = new AroFloSharpClient(options =>
             {
                 options.Timeout = TimeSpan.FromSeconds(5);
-                options.DataFormat = DataFormat.Json;
+                options.DataFormat = DataFormat.Xml;
                 options.SecretKey = Credentials.SECRET_KEY;
                 options.UEncode = Credentials.U_ENCODE;
                 options.PEncode = Credentials.P_ENCODE;
