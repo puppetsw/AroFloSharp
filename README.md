@@ -43,8 +43,8 @@ config =>
 var response = await client.GetResponseAsync(
 parameters =>
 {
-    parameters.Add(new ZoneParameter(AroFloZone.Projects));
-    parameters.Add(new PageParameter(1));
+    parameters.AddZone(AroFloZone.Projects);
+    parameters.AddPageNumber(1);
 });
 
 using serializer = new JsonNewtonsoftSerializer();
@@ -74,12 +74,12 @@ If you compare `currentpageresults` to `maxpageresults` you will know if you hav
 
 ## Where
 
-The `AndParameter` and `OrParameter` can be used to filter the request. The AroFlo API is still in development so not all "Zones" have a where filter that can be applied. 
+The `AndParameter` and `OrParameter` can be used to filter the request. The comparison operator can be specified via an method overload.
 
 ```cs
-parameters.Add(new ZoneParameter(AroFloZone.Users));
-parameters.Add(new AndParameter("givennames", "steve", ComparisonOperator.Equal));
-parameters.Add(new OrParameter("archived", "true", ComparisonOperator.Equal));
+parameters.AddZone(AroFloZone.Users);
+parameters.AddWhereAnd("givennames", "steve");
+parameters.AddWhereOr("archived", "true");
 ```
 
 The above example would generate the following string.
@@ -88,13 +88,10 @@ The above example would generate the following string.
 `WhereParameters` can also have sub parameters that can be used for more complex comparisons.
 
 ```cs
-parameters.Add(new ZoneParameter(AroFloZone.Tasks));
-
-var where1 = new AndParameter("clientname", "ClientA", ComparisonOperator.Equal);
-where1.Parameters.Add(new OrParameter("clientname", "ClientB", ComparisonOperator.Equal));
-
-parameters.Add(where1);
-parameters.Add(new AndParameter("daterequested", "2017-12-01", ComparisonOperator.Equal));
+parameters.AddZone(AroFloZone.Tasks);
+parameters.AddWhereAnd("clientname", "ClientA")
+          .AddWhereOr("clientname", "ClientB");
+parameters.AddWhereAnd("daterequested", "2017-12-01");
 ```
 
 The above example would generate the following string.
