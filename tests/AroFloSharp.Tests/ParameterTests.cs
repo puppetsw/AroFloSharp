@@ -1,5 +1,6 @@
 ﻿using System;
 using AroFloSharp.Client.Enums;
+using AroFloSharp.Client.Helpers;
 using AroFloSharp.Client.Parameters;
 using NUnit.Framework;
 
@@ -95,6 +96,21 @@ public class ParameterTests
 
         parameters.Add(where1);
         parameters.Add(new AndParameter("daterequested", "2017-12-01", ComparisonOperator.Equal));
+
+        var expected = "zone=tasks&where=and%7C%28%7Cclientname%7C%3D%7CClientA&where=or%7Cclientname%7C%3D%7CClientB%29&where=and%7Cdaterequested%7C%3D%7C2017-12-01";
+        var result = parameters.ToString();
+
+        Assert.AreEqual(Uri.UnescapeDataString(expected), Uri.UnescapeDataString(result));
+    }
+
+    [Test]
+    public void Test_parameter_collection_zone_where_or_where_and_ToString_with_helpers()
+    {
+        var parameters = new ParameterCollection();
+
+        parameters.AddZone(AroFloZone.Tasks);
+        parameters.AddWhereAnd("clientname", "ClientA").AddWhereOr("clientname", "ClientB");
+        parameters.AddWhereAnd("daterequested", "2017-12-01");
 
         var expected = "zone=tasks&where=and%7C%28%7Cclientname%7C%3D%7CClientA&where=or%7Cclientname%7C%3D%7CClientB%29&where=and%7Cdaterequested%7C%3D%7C2017-12-01";
         var result = parameters.ToString();

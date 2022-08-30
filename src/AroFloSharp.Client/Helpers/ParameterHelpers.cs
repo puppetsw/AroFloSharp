@@ -13,7 +13,7 @@ public static class ParameterHelpers
     }
 
     public static AndParameter AddWhereAnd(this ParameterCollection parameterCollection, string field, string value,
-        ComparisonOperator comparisonOperator)
+        ComparisonOperator comparisonOperator = ComparisonOperator.Equal)
     {
         var andParameter = new AndParameter(field, value, comparisonOperator);
         parameterCollection.Add(andParameter);
@@ -21,7 +21,7 @@ public static class ParameterHelpers
     }
 
     public static AndParameter AddWhereAnd(this AndParameter parameter, string field, string value,
-        ComparisonOperator comparisonOperator)
+        ComparisonOperator comparisonOperator = ComparisonOperator.Equal)
     {
         var andParameter = new AndParameter(field, value, comparisonOperator);
         parameter.Parameters.Add(andParameter);
@@ -29,7 +29,7 @@ public static class ParameterHelpers
     }
 
     public static AndParameter AddWhereAnd(this OrParameter parameter, string field, string value,
-        ComparisonOperator comparisonOperator)
+        ComparisonOperator comparisonOperator = ComparisonOperator.Equal)
     {
         var andParameter = new AndParameter(field, value, comparisonOperator);
         parameter.Parameters.Add(andParameter);
@@ -37,7 +37,7 @@ public static class ParameterHelpers
     }
 
     public static OrParameter AddWhereOr(this ParameterCollection parameterCollection, string field, string value,
-        ComparisonOperator comparisonOperator)
+        ComparisonOperator comparisonOperator = ComparisonOperator.Equal)
     {
         var orParameter = new OrParameter(field, value, comparisonOperator);
         parameterCollection.Add(orParameter);
@@ -45,7 +45,7 @@ public static class ParameterHelpers
     }
 
     public static OrParameter AddWhereOr(this OrParameter parameter, string field, string value,
-        ComparisonOperator comparisonOperator)
+        ComparisonOperator comparisonOperator = ComparisonOperator.Equal)
     {
         var orParameter = new OrParameter(field, value, comparisonOperator);
         parameter.Parameters.Add(orParameter);
@@ -53,7 +53,7 @@ public static class ParameterHelpers
     }
 
     public static OrParameter AddWhereOr(this AndParameter parameter, string field, string value,
-        ComparisonOperator comparisonOperator)
+        ComparisonOperator comparisonOperator = ComparisonOperator.Equal)
     {
         var orParameter = new OrParameter(field, value, comparisonOperator);
         parameter.Parameters.Add(orParameter);
