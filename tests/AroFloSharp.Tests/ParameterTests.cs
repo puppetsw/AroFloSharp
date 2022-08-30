@@ -1,15 +1,14 @@
 ﻿using System;
-using System.Security.Policy;
 using AroFloSharp.Client.Enums;
 using AroFloSharp.Client.Parameters;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NUnit.Framework;
 
 namespace AroFloSharp.Tests;
 
-[TestClass]
+[TestFixture]
 public class ParameterTests
 {
-    [TestMethod]
+    [Test]
     public void Test_parameter_ToString()
     {
         var andParam = new AndParameter("clientname", "ClientA", ComparisonOperator.Equal);
@@ -20,7 +19,7 @@ public class ParameterTests
         Assert.AreEqual(expected, result);
     }
 
-    [TestMethod]
+    [Test]
     public void Test_zone_parameter_ToString()
     {
         var parameter = new ZoneParameter(AroFloZone.Projects);
@@ -31,7 +30,7 @@ public class ParameterTests
         Assert.AreEqual(expected, result);
     }
 
-    [TestMethod]
+    [Test]
     public void Test_order_parameter_ToString()
     {
         var parameter = new OrderParameter("lastupdateutc", SortOrder.Ascending);
@@ -42,7 +41,7 @@ public class ParameterTests
         Assert.AreEqual(expected, result);
     }
 
-    [TestMethod]
+    [Test]
     public void Test_parameter_collection_ToString()
     {
         var parameters = new ParameterCollection();
@@ -56,7 +55,7 @@ public class ParameterTests
         Assert.AreEqual(expected, result);
     }
 
-    [TestMethod]
+    [Test]
     public void Test_parameter_collection_zone_page_order_ToString()
     {
         var parameters = new ParameterCollection();
@@ -70,7 +69,7 @@ public class ParameterTests
         Assert.AreEqual(expected, result);
     }
 
-    [TestMethod]
+    [Test]
     public void Test_parameter_collection_users_and_or_ToString()
     {
         var parameters = new ParameterCollection();
@@ -84,7 +83,7 @@ public class ParameterTests
         Assert.AreEqual(expected, Uri.UnescapeDataString(result));
     }
 
-    [TestMethod]
+    [Test]
     public void Test_parameter_collection_zone_where_or_where_and_ToString()
     {
         var parameters = new ParameterCollection();

@@ -6,14 +6,14 @@ using AroFloSharp.Client.Parameters;
 using AroFloSharp.Serialization.Models;
 using AroFloSharp.Serialization.Response;
 using AroFloSharp.Serialization.Serializer;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NUnit.Framework;
 
 namespace AroFloSharp.Tests;
 
-[TestClass]
+[TestFixture]
 public class SerializationTests
 {
-    [TestMethod]
+    [Test]
     public async Task Test_basic_deserialization_Projects()
     {
         using var client = new AroFloSharpClient(config =>
@@ -40,7 +40,7 @@ public class SerializationTests
         Assert.IsTrue(projects.ZoneResponse.Projects.Count > 0);
     }
 
-    [TestMethod]
+    [Test]
     public void Test_basic_serialization_Project()
     {
         var project = new Project { ProjectId = "TEST" };

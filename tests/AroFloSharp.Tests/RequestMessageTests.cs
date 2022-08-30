@@ -3,14 +3,14 @@ using System.Threading.Tasks;
 using AroFloSharp.Client;
 using AroFloSharp.Client.Enums;
 using AroFloSharp.Client.Parameters;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NUnit.Framework;
 
 namespace AroFloSharp.Tests
 {
-    [TestClass]
+    [TestFixture]
     public class RequestMessageTests
     {
-        [TestMethod]
+        [Test]
         public async Task Test_request_message()
         {
             using var client = new AroFloSharpClient(options =>

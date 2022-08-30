@@ -17,7 +17,7 @@ public class JsonNewtonsoftSerializer : IDisposable
 
     private readonly JsonTextWriter _jsonTextWriter;
 
-    public string ContentType { get; set; } = "application/json";
+    public string ContentType { get; } = "application/json";
 
     public static readonly JsonSerializerSettings DefaultSettings = new()
     {
