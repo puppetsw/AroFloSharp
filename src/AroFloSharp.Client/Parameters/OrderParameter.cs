@@ -1,5 +1,6 @@
 ﻿using System;
 using AroFloSharp.Client.Enums;
+using AroFloSharp.Client.Helpers;
 
 namespace AroFloSharp.Client.Parameters;
 
@@ -17,6 +18,6 @@ public class OrderParameter : ParameterBase
     public override string ToString()
     {
         string orderText = _sortOrder == SortOrder.Ascending ? "asc" : "desc";
-        return $"{ParameterTypes[Type]}={Uri.EscapeDataString($"{_columnName}|{orderText}")}";
+        return $"{Type.GetParameterTypeString()}={Uri.EscapeDataString($"{_columnName}|{orderText}")}";
     }
 }

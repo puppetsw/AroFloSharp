@@ -1,4 +1,7 @@
-﻿namespace AroFloSharp.Client;
+﻿using AroFloSharp.Client.Enums;
+using System.Collections.Generic;
+
+namespace AroFloSharp.Client;
 
 public static class Constants
 {
@@ -52,5 +55,25 @@ public static class Constants
     public const string TASKS = "tasks";
 
     public const string USERS = "users";
+
+    // Lookups
+    public static readonly Dictionary<AroFloZone, string> Zones = new()
+    {
+        {AroFloZone.Projects, PROJECTS},
+        {AroFloZone.Clients, CLIENTS},
+        {AroFloZone.Locations, LOCATIONS},
+        {AroFloZone.Tasks, TASKS},
+        {AroFloZone.Users, USERS}
+    };
+
+    public static readonly Dictionary<ParameterType, string> ParameterTypes = new()
+    {
+        {ParameterType.Zone, ZONE},
+        {ParameterType.Page, PAGE},
+        {ParameterType.Where, WHERE},
+        {ParameterType.Order, ORDER},
+        {ParameterType.Join, JOIN},
+        {ParameterType.PageSize, PAGE_SIZE}
+    };
 
 }

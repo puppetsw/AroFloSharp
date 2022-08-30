@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using AroFloSharp.Client.Enums;
+using AroFloSharp.Client.Helpers;
 
 namespace AroFloSharp.Client.Parameters;
 
@@ -24,6 +24,6 @@ public class JoinParameter : ParameterBase
         var joinArray = _joinFields.ToArray();
         var joinString = string.Join(",", joinArray);
 
-        return $"{ParameterTypes[Type]}={Uri.EscapeDataString(joinString)}";
+        return $"{Type.GetParameterTypeString()}={Uri.EscapeDataString(joinString)}";
     }
 }

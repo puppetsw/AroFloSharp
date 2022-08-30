@@ -1,5 +1,6 @@
 ﻿using System;
 using AroFloSharp.Client.Enums;
+using AroFloSharp.Client.Helpers;
 
 namespace AroFloSharp.Client.Parameters;
 
@@ -12,5 +13,5 @@ public class PageSizeParameter : ParameterBase
         _pageSize = pageSize;
     }
 
-    public override string ToString() => $"{ParameterTypes[Type]}={Uri.EscapeDataString(_pageSize.ToString())}";
+    public override string ToString() => $"{Type.GetParameterTypeString()}={Uri.EscapeDataString(_pageSize.ToString())}";
 }

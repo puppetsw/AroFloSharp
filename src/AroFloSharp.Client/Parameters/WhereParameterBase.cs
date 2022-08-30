@@ -1,9 +1,12 @@
-﻿using System;
+﻿
+
+#nullable enable
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 using AroFloSharp.Client.Enums;
-
-#nullable enable
+using AroFloSharp.Client.Helpers;
 
 namespace AroFloSharp.Client.Parameters;
 
@@ -58,7 +61,7 @@ public abstract class WhereParameterBase : ParameterBase
         var leftBracket = Parameters.Count > 0 ? "|(" : ""; // additional pipe required when using brackets.
         var rightBracket = Parameters.Count > 0 ? ")" : "";
 
-        sb.Append($"{ParameterTypes[Type]}={Uri.EscapeDataString($"{StatementOperators[Statement]}{leftBracket}|{Field}|{ComparisonOperators[Operator]}|{Value}")}");
+        sb.Append($"{Type.GetParameterTypeString()}={Uri.EscapeDataString($"{StatementOperators[Statement]}{leftBracket}|{Field}|{ComparisonOperators[Operator]}|{Value}")}");
 
         foreach (var parameter in Parameters)
         {

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using AroFloSharp.Client.Enums;
+using AroFloSharp.Client.Helpers;
 
 namespace AroFloSharp.Client.Parameters;
 
@@ -13,5 +14,5 @@ public class PageParameter : ParameterBase
         _pageNumber = pageNumber;
     }
 
-    public override string ToString() => $"{ParameterTypes[Type]}={Uri.EscapeDataString(_pageNumber.ToString())}";
+    public override string ToString() => $"{Type.GetParameterTypeString()}={Uri.EscapeDataString(_pageNumber.ToString())}";
 }
