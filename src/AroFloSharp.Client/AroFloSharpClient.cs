@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
 using AroFloSharp.Client.Enums;
@@ -17,7 +18,7 @@ public class AroFloSharpClient : IDisposable
 
     public AroFloStatus Status { get; private set; }
 
-    public string? StatusMessage { get; private set; }
+    public string StatusMessage { get; private set; } = string.Empty;
 
     public AroFloSharpClient(Action<AroFloSharpConfig>? config = null)
     {
@@ -26,10 +27,15 @@ public class AroFloSharpClient : IDisposable
         _httpClient.Timeout = _config.Timeout;
     }
 
-    public async Task<string?> GetResponseAsync(Action<ParameterCollection> parameterCollection)
+    public async Task<string?> GetResponseAsync(Action<ParameterCollection>? parameterCollection)
     {
         var parameters = new ParameterCollection();
         parameterCollection?.Invoke(parameters);
+
+        if (parameters.All(parameter => parameter.GetType() != typeof(ZoneParameter)))
+        {
+            throw new InvalidOperationException("No ZoneParameter in ParameterCollection");
+        }
 
         using var request = new RequestMessage();
         request.Parameters.AddRange(parameters);
@@ -50,6 +56,6 @@ public class AroFloSharpClient : IDisposable
 
     public void Dispose()
     {
-        _httpClient?.Dispose();
+        _httpClient.Dispose();
     }
 }
