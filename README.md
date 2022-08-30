@@ -34,9 +34,10 @@ dotnet add package AroFloSharp
 using var client = new AroFloSharpClient(
 config =>
 {
+    // Provide your API Credientials
     config.SecretKey = Credentials.SECRET_KEY;
-    config.UEncode = Credentials.U_ENCODE;
-    config.PEncode = Credentials.P_ENCODE;
+    config.UEncode   = Credentials.U_ENCODE;
+    config.PEncode   = Credentials.P_ENCODE;
     config.OrgEncode = Credentials.ORG_ENCODE;
 });
 var response = await client.GetResponseAsync(
@@ -51,6 +52,15 @@ var projects = serializer.Deserialize<Response<ProjectZoneResponse>>(response);
 ```
 
 The above example will generate the following AroFlo request string. `zone=projects&page=1` The API keys can be accessed after setting up and being approved for the AroFlo API access.
+
+### Status & Status Message
+
+```cs
+client.Status
+client.StatusMessage
+```
+
+You can access the status and message of the request from the client with the above.
 
 ## Paging
 
@@ -112,7 +122,8 @@ If you are looking to contribute to the codebase, please ensure you have Visual
 Studio 2022 installed - you can download the Community edition from
 [here](https://visualstudio.microsoft.com/vs/)
 
-`dotnet build AroFloSharp.Client`
+`dotnet build ./src/AroFloSharp.Client`<br>
+`dotnet build ./src/AroFloSharp.Serialization`
 
 # Contribute
 Visit the [Contributor Guidelines](https://github.com/puppetsw/AroFloSharp/blob/master/CONTRIBUTING.md)
