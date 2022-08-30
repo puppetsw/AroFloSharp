@@ -34,9 +34,10 @@ dotnet add package AroFloSharp
 using var client = new AroFloSharpClient(
 config =>
 {
+    // Provide your API Credientials
     config.SecretKey = Credentials.SECRET_KEY;
-    config.UEncode = Credentials.U_ENCODE;
-    config.PEncode = Credentials.P_ENCODE;
+    config.UEncode   = Credentials.U_ENCODE;
+    config.PEncode   = Credentials.P_ENCODE;
     config.OrgEncode = Credentials.ORG_ENCODE;
 });
 var response = await client.GetResponseAsync(
