@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 using AroFloSharp.Client;
 using AroFloSharp.Client.Enums;
+using AroFloSharp.Client.Helpers;
 using AroFloSharp.Client.Parameters;
 using AroFloSharp.Serialization.Models;
 using AroFloSharp.Serialization.Response;
@@ -26,7 +27,9 @@ public class SerializationTests
 
         var data = await client.GetResponseAsync(parameters =>
         {
-            parameters.Add(new ZoneParameter(AroFloZone.Projects));
+            parameters.AddZone(AroFloZone.Projects);
+            // parameters.AddWhereAnd("projectnunber", "20", ComparisonOperator.Equal);
+            // parameters.Add(new ZoneParameter(AroFloZone.Projects));
             // parameters.Add(new AndParameter("projectnumber", "20", ComparisonOperator.Equal));
             // parameters.Add(new PageParameter(1));
             // parameters.Add(new PageSizeParameter(500));
