@@ -24,6 +24,6 @@ public class JoinParameter : ParameterBase
         var joinArray = _joinFields.ToArray();
         var joinString = string.Join(",", joinArray);
 
-        return $"{Type.GetParameterTypeString()}={Uri.EscapeDataString(joinString)}";
+        return $"{Type.GetString()}={Uri.EscapeDataString(joinString)}";
     }
 }

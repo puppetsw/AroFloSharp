@@ -56,7 +56,13 @@ public static class Constants
 
     public const string USERS = "users";
 
-    // Lookups
+    // Other strings
+
+    public const string ASCENDING = "asc";
+
+    public const string DESCENDING = "desc";
+
+    // Enum Lookups
     public static readonly Dictionary<AroFloZone, string> Zones = new()
     {
         {AroFloZone.Projects, PROJECTS},
@@ -74,6 +80,22 @@ public static class Constants
         {ParameterType.Order, ORDER},
         {ParameterType.Join, JOIN},
         {ParameterType.PageSize, PAGE_SIZE}
+    };
+
+    public static readonly Dictionary<ComparisonOperator, string> ComparisonOperators = new()
+    {
+        {ComparisonOperator.Equal, EQUAL},
+        {ComparisonOperator.GreaterThan, GREATER_THAN},
+        {ComparisonOperator.LessThan, LESS_THAN},
+        {ComparisonOperator.In, IN},
+        {ComparisonOperator.NotIn, NOT_IN},
+        {ComparisonOperator.NotEqual, NOT_EQUAL}
+    };
+
+    public static readonly Dictionary<StatementOperator, string> StatementOperators = new()
+    {
+        {StatementOperator.And, AND},
+        {StatementOperator.Or, OR}
     };
 
 }

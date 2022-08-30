@@ -17,7 +17,7 @@ public class OrderParameter : ParameterBase
 
     public override string ToString()
     {
-        string orderText = _sortOrder == SortOrder.Ascending ? "asc" : "desc";
-        return $"{Type.GetParameterTypeString()}={Uri.EscapeDataString($"{_columnName}|{orderText}")}";
+        string orderText = _sortOrder == SortOrder.Ascending ? Constants.ASCENDING : Constants.DESCENDING;
+        return $"{Type.GetString()}={Uri.EscapeDataString($"{_columnName}|{orderText}")}";
     }
 }

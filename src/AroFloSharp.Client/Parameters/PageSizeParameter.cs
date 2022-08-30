@@ -13,5 +13,5 @@ public class PageSizeParameter : ParameterBase
         _pageSize = pageSize;
     }
 
-    public override string ToString() => $"{Type.GetParameterTypeString()}={Uri.EscapeDataString(_pageSize.ToString())}";
+    public override string ToString() => $"{Type.GetString()}={Uri.EscapeDataString(_pageSize.ToString())}";
 }

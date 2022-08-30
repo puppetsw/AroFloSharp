@@ -13,5 +13,5 @@ public class ZoneParameter : ParameterBase
         _zone = zone;
     }
 
-    public override string ToString() => $"{Type.GetParameterTypeString()}={Uri.EscapeDataString(_zone.GetZoneString())}";
+    public override string ToString() => $"{Type.GetString()}={Uri.EscapeDataString(_zone.GetString())}";
 }

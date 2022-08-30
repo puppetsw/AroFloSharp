@@ -14,5 +14,5 @@ public class PageParameter : ParameterBase
         _pageNumber = pageNumber;
     }
 
-    public override string ToString() => $"{Type.GetParameterTypeString()}={Uri.EscapeDataString(_pageNumber.ToString())}";
+    public override string ToString() => $"{Type.GetString()}={Uri.EscapeDataString(_pageNumber.ToString())}";
 }

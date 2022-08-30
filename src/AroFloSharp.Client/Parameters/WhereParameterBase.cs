@@ -1,12 +1,10 @@
-﻿
-
-#nullable enable
-
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Text;
 using AroFloSharp.Client.Enums;
 using AroFloSharp.Client.Helpers;
+
+#nullable enable
 
 namespace AroFloSharp.Client.Parameters;
 
@@ -22,10 +20,6 @@ public abstract class WhereParameterBase : ParameterBase
 
     public StatementOperator Statement { get; }
 
-    private Dictionary<ComparisonOperator, string> ComparisonOperators { get; } = new();
-
-    private Dictionary<StatementOperator, string> StatementOperators { get; } = new();
-
     protected WhereParameterBase(string field, string value, ComparisonOperator comparisonOperator, StatementOperator statementOperator)
         : base(ParameterType.Where)
     {
@@ -33,16 +27,6 @@ public abstract class WhereParameterBase : ParameterBase
         Value = value;
         Operator = comparisonOperator;
         Statement = statementOperator;
-
-        ComparisonOperators.Add(ComparisonOperator.Equal, Constants.EQUAL);
-        ComparisonOperators.Add(ComparisonOperator.GreaterThan, Constants.GREATER_THAN);
-        ComparisonOperators.Add(ComparisonOperator.LessThan, Constants.LESS_THAN);
-        ComparisonOperators.Add(ComparisonOperator.In, Constants.IN);
-        ComparisonOperators.Add(ComparisonOperator.NotIn, Constants.NOT_IN);
-        ComparisonOperators.Add(ComparisonOperator.NotEqual, Constants.NOT_EQUAL);
-
-        StatementOperators.Add(StatementOperator.And, Constants.AND);
-        StatementOperators.Add(StatementOperator.Or, Constants.OR);
     }
 
     /// <summary>
@@ -61,7 +45,7 @@ public abstract class WhereParameterBase : ParameterBase
         var leftBracket = Parameters.Count > 0 ? "|(" : ""; // additional pipe required when using brackets.
         var rightBracket = Parameters.Count > 0 ? ")" : "";
 
-        sb.Append($"{Type.GetParameterTypeString()}={Uri.EscapeDataString($"{StatementOperators[Statement]}{leftBracket}|{Field}|{ComparisonOperators[Operator]}|{Value}")}");
+        sb.Append($"{Type.GetString()}={Uri.EscapeDataString($"{Statement.GetString()}{leftBracket}|{Field}|{Operator.GetString()}|{Value}")}");
 
         foreach (var parameter in Parameters)
         {
