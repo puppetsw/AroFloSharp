@@ -46,7 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Serializer\JsonNetSerializer.cs" />
+    <Compile Include="Serializer\JsonNewtonsoftSerializer.cs" />
     <Compile Include="Models\Client.cs" />
     <Compile Include="Models\Location.cs" />
     <Compile Include="Models\Project.cs" />

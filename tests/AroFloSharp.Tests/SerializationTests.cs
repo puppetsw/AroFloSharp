@@ -33,7 +33,7 @@ public class SerializationTests
             // parameters.Add(new AndParameter("status", "open", ComparisonOperator.Equal));
         });
 
-        var serializer = new JsonNetSerializer();
+        var serializer = new JsonNewtonsoftSerializer();
 
         var projects = serializer.Deserialize<Response<ProjectZoneResponse>>(data);
 
@@ -45,7 +45,7 @@ public class SerializationTests
     {
         var project = new Project { ProjectId = "TEST" };
 
-        using var serializer = new JsonNetSerializer();
+        using var serializer = new JsonNewtonsoftSerializer();
 
         var result = serializer.Serialize(project);
         Console.WriteLine(result);

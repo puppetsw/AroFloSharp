@@ -1,15 +1,15 @@
-﻿#nullable enable
-
-using System;
+﻿using System;
 using System.Globalization;
 using System.IO;
 using System.Text;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 
+#nullable enable
+
 namespace AroFloSharp.Serialization.Serializer;
 
-public class JsonNetSerializer : IDisposable
+public class JsonNewtonsoftSerializer : IDisposable
 {
     private readonly JsonSerializer _serializer;
 
@@ -17,7 +17,9 @@ public class JsonNetSerializer : IDisposable
 
     private readonly JsonTextWriter _jsonTextWriter;
 
-    private static readonly JsonSerializerSettings s_defaultSettings = new()
+    public string ContentType { get; set; } = "application/json";
+
+    public static readonly JsonSerializerSettings DefaultSettings = new()
     {
         ContractResolver     = new CamelCasePropertyNamesContractResolver(),
         DefaultValueHandling = DefaultValueHandling.Include,
@@ -27,12 +29,9 @@ public class JsonNetSerializer : IDisposable
         ConstructorHandling  = ConstructorHandling.AllowNonPublicDefaultConstructor
     };
 
-    /// <summary>
-    /// Create the new serializer that uses JsonNewtonsoft with default settings
-    /// </summary>
-    public JsonNetSerializer()
+    public JsonNewtonsoftSerializer(JsonSerializerSettings serializerSettings)
     {
-        _serializer = JsonSerializer.Create(s_defaultSettings);
+        _serializer = JsonSerializer.Create(serializerSettings);
 
         _jsonTextWriter = new(_stringWriter)
         {
@@ -40,6 +39,11 @@ public class JsonNetSerializer : IDisposable
             CloseOutput = false
         };
     }
+
+    /// <summary>
+    /// Create the new serializer that uses JsonNewtonsoft with default settings
+    /// </summary>
+    public JsonNewtonsoftSerializer() : this(DefaultSettings) { }
 
     public string? Serialize(object? obj) {
         if (obj == null) return null;
