@@ -15,12 +15,12 @@ public class SerializationTests
     [TestMethod]
     public async Task Test_basic_deserialization_project()
     {
-        using var client = new AroFloSharpClient(options =>
+        using var client = new AroFloSharpClient(config =>
         {
-            options.SecretKey = Credentials.SECRET_KEY;
-            options.UEncode = Credentials.U_ENCODE;
-            options.PEncode = Credentials.P_ENCODE;
-            options.OrgEncode = Credentials.ORG_ENCODE;
+            config.SecretKey = Credentials.SECRET_KEY;
+            config.UEncode = Credentials.U_ENCODE;
+            config.PEncode = Credentials.P_ENCODE;
+            config.OrgEncode = Credentials.ORG_ENCODE;
         });
 
         var data = await client.GetResponseAsync(parameters =>

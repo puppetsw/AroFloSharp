@@ -5,5 +5,6 @@ public enum ParameterType
     Zone,
     Page,
     Where,
-    Order
+    Order,
+    Join
 }

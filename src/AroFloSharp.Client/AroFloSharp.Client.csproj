@@ -55,6 +55,7 @@
     <Compile Include="Helpers\Ensure.cs" />
     <Compile Include="Parameters\AndParameter.cs" />
     <Compile Include="Enums\ComparisonOperator.cs" />
+    <Compile Include="Parameters\JoinParameter.cs" />
     <Compile Include="Parameters\OrderParameter.cs" />
     <Compile Include="Parameters\OrParameter.cs" />
     <Compile Include="Parameters\ParameterCollection.cs" />
