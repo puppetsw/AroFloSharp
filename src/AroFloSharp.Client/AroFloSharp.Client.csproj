@@ -53,6 +53,7 @@
     <Compile Include="Enums\DataFormat.cs" />
     <Compile Include="Enums\AroFloZone.cs" />
     <Compile Include="Helpers\Ensure.cs" />
+    <Compile Include="Helpers\FormatHelpers.cs" />
     <Compile Include="Parameters\AndParameter.cs" />
     <Compile Include="Enums\ComparisonOperator.cs" />
     <Compile Include="Parameters\JoinParameter.cs" />
@@ -70,10 +71,9 @@
     <Compile Include="Request\RequestHeaders.cs" />
     <Compile Include="Enums\SortOrder.cs" />
     <Compile Include="Parameters\ParameterBase.cs" />
+    <Compile Include="Response\RequestResponse.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Response\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\AroFloSharp.Serialization\AroFloSharp.Serialization.csproj">
       <Project>{a26ff128-a3e1-4ece-ad17-741442a840b7}</Project>

@@ -5,7 +5,7 @@ using Newtonsoft.Json;
 
 namespace AroFloSharp.Serialization.Response;
 
-public class ProjectZoneResponse : ZoneResponseBase
+public sealed class ProjectZoneResponse : ZoneResponseBase
 {
     [JsonProperty("projects")]
     [XmlArrayItem("project")]

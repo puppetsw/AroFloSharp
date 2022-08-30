@@ -1,6 +1,4 @@
-﻿using Newtonsoft.Json;
-
-namespace AroFloSharp.Serialization.Response;
+﻿namespace AroFloSharp.Serialization.Response;
 
 public abstract class ZoneResponseBase
 {
