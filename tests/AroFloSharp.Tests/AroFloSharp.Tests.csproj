@@ -54,11 +54,16 @@
     <Compile Include="ParameterTests.cs" />
     <Compile Include="RequestMessageTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SerializationTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\src\AroFloSharp.Client\AroFloSharp.Client.csproj">
       <Project>{4abf861b-c903-48b4-8d41-8955b6ee1bef}</Project>
       <Name>AroFloSharp.Client</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\src\AroFloSharp.Serialization\AroFloSharp.Serialization.csproj">
+      <Project>{a26ff128-a3e1-4ece-ad17-741442a840b7}</Project>
+      <Name>AroFloSharp.Serialization</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

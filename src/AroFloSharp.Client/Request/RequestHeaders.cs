@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Net.Http;
 using System.Security.Cryptography;
 using System.Text;
-using AroFloSharp.Client.Enums;
 
 namespace AroFloSharp.Client.Request;
 
@@ -23,7 +22,7 @@ public static class RequestHeaders
         authString.Append($"&orgEncoded={Uri.EscapeDataString(config.OrgEncode)}");
         var authorization = authString.ToString();
 
-        var accept = config.DataFormat == DataFormat.Xml ? Constants.ACCEPT_XML : Constants.ACCEPT_JSON;
+        var accept = config.Accept;
         var isoTimeStamp = DateTime.UtcNow.ToString(DATE_FORMAT_STRING);
 
         var payloadArray = new List<string>

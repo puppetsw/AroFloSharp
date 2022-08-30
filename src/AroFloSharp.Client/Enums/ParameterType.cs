@@ -6,5 +6,6 @@ public enum ParameterType
     Page,
     PageSize,
     Where,
-    Order
+    Order,
+    Join
 }
