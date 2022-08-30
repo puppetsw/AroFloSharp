@@ -20,5 +20,6 @@ public abstract class ParameterBase
         ParameterTypes.Add(ParameterType.Where, Constants.WHERE);
         ParameterTypes.Add(ParameterType.Order, Constants.ORDER);
         ParameterTypes.Add(ParameterType.Join, Constants.JOIN);
+        ParameterTypes.Add(ParameterType.PageSize, Constants.PAGE_SIZE);
     }
 }

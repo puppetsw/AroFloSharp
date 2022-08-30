@@ -58,6 +58,7 @@
     <Compile Include="Parameters\JoinParameter.cs" />
     <Compile Include="Parameters\OrderParameter.cs" />
     <Compile Include="Parameters\OrParameter.cs" />
+    <Compile Include="Parameters\PageSizeParameter.cs" />
     <Compile Include="Parameters\ParameterCollection.cs" />
     <Compile Include="Enums\StatementOperator.cs" />
     <Compile Include="Enums\ParameterType.cs" />

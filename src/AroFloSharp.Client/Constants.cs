@@ -40,6 +40,8 @@ public static class Constants
 
     public const string JOIN = "join";
 
+    public const string PAGE_SIZE = "pageSize";
+
     // AroFlo Zones
     public const string PROJECTS = "projects";
 
