@@ -52,6 +52,15 @@ var projects = serializer.Deserialize<Response<ProjectZoneResponse>>(response);
 
 The above example will generate the following AroFlo request string. `zone=projects&page=1` The API keys can be accessed after setting up and being approved for the AroFlo API access.
 
+### Status & Status Message
+
+```cs
+client.Status
+client.StatusMessage
+```
+
+You can access the status and message of the request from the client with the above.
+
 ## Paging
 
 If no page number parameter is provided, all results will be returned. By default the [AroFlo API](https://apidocs.aroflo.com/?version=latest#paging-in-aroflo-api) returns 500 records per request.
