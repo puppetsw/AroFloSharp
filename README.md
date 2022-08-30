@@ -122,7 +122,8 @@ If you are looking to contribute to the codebase, please ensure you have Visual
 Studio 2022 installed - you can download the Community edition from
 [here](https://visualstudio.microsoft.com/vs/)
 
-`dotnet build AroFloSharp.Client`
+`dotnet build ./src/AroFloSharp.Client`<br>
+`dotnet build ./src/AroFloSharp.Serialization`
 
 # Contribute
 Visit the [Contributor Guidelines](https://github.com/puppetsw/AroFloSharp/blob/master/CONTRIBUTING.md)
