@@ -74,12 +74,12 @@ If you compare `currentpageresults` to `maxpageresults` you will know if you hav
 
 ## Where
 
-The `AndParameter` and `OrParameter` can be used to filter the request. The AroFlo API is still in development so not all "Zones" have a where filter that can be applied. 
+The `AndParameter` and `OrParameter` can be used to filter the request. The comparison operator can be specified via an method overload.
 
 ```cs
 parameters.AddZone(AroFloZone.Users);
-parameters.AddWhereAnd("givennames", "steve", ComparisonOperator.Equal);
-parameters.AddWhereOr("archived", "true", ComparisonOperator.Equal);
+parameters.AddWhereAnd("givennames", "steve");
+parameters.AddWhereOr("archived", "true");
 ```
 
 The above example would generate the following string.
