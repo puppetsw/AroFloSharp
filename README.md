@@ -43,7 +43,7 @@ config =>
 var response = await client.GetResponseAsync(
 parameters =>
 {
-    parameters.AddZone(AroFloZone.Projects);
+    parameters.AddZone(Zone.Projects);
     parameters.AddPageNumber(1);
 });
 
@@ -77,7 +77,7 @@ If you compare `currentpageresults` to `maxpageresults` you will know if you hav
 The `AndParameter` and `OrParameter` can be used to filter the request. The comparison operator can be specified via an method overload.
 
 ```cs
-parameters.AddZone(AroFloZone.Users);
+parameters.AddZone(Zone.Users);
 parameters.AddWhereAnd("givennames", "steve");
 parameters.AddWhereOr("archived", "true");
 ```
@@ -88,7 +88,7 @@ The above example would generate the following string.
 `WhereParameters` can also have sub parameters that can be used for more complex comparisons.
 
 ```cs
-parameters.AddZone(AroFloZone.Tasks);
+parameters.AddZone(Zone.Tasks);
 parameters.AddWhereAnd("clientname", "ClientA")
           .AddWhereOr("clientname", "ClientB");
 parameters.AddWhereAnd("daterequested", "2017-12-01");
@@ -100,8 +100,9 @@ The above example would generate the following string.
 ## Order By
 
 ```cs
-parameters.Add(new OrderParameter("givennames", SortOrder.Ascending));
+parameters.AddOrder("givennames");
 ```
+By default the sort order is descending. This can be changed via overload.
 
 # Documentation
 
