@@ -67,7 +67,7 @@ You can access the status and message of the request from the client with the ab
 If no page number parameter is provided, all results will be returned. By default the [AroFlo API](https://apidocs.aroflo.com/?version=latest#paging-in-aroflo-api) returns 500 records per request.
 
 ```cs
-parameters.Add(new PageSizeParameter(10));
+parameters.AddPageSize(10);
 ```
 
 If you compare `currentpageresults` to `maxpageresults` you will know if you have to ask for the next page, incrementing pagenumber for the next query. If the value is less than the current maximum you have received the last set of data.
