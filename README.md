@@ -93,7 +93,7 @@ parameters.AddWhereAnd("clientname", "ClientA")
 parameters.AddWhereAnd("daterequested", "2017-12-01");
 ```
 
-The above example would generate the following string.
+The above example would generate the following string. <br>
 `zone=tasks&where=and|(|clientname|=|ClientA&where=or|clientname|=|ClientB|)&where=and|daterequested|=|2017-12-01`
 
 ## Order By
