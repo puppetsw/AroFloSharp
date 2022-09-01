@@ -50,7 +50,7 @@ parameters =>
 var projects = JsonNetSerializer.Deserialize<Response<ProjectZoneResponse>>(response);
 ```
 
-The above example will generate the following AroFlo request string. `zone=projects&page=1` The API keys can be accessed after setting up and being approved for the AroFlo API access. By default the client returns data in Json format. But can be changed to XML with `config.DataForm`.
+The above example will generate the following AroFlo request string. `zone=projects&page=1` The API keys can be accessed after setting up and being approved for the AroFlo API access. By default the client returns data in Json format. But can be changed to XML with `config.DataFormat`.
 
 ### Status & Status Message
 
@@ -81,7 +81,7 @@ parameters.AddWhereAnd("givennames", "steve");
 parameters.AddWhereOr("archived", "true");
 ```
 
-The above example would generate the following string.
+The above example would generate the following string. <br>
 `zone=users&where=and|givennames|=|steve&where=or|archived|=|true`
 
 `WhereParameters` can also have sub parameters that can be used for more complex comparisons.
