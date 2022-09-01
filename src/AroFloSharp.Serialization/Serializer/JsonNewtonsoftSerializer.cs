@@ -9,7 +9,7 @@ using Newtonsoft.Json.Serialization;
 
 namespace AroFloSharp.Serialization.Serializer;
 
-public class JsonNewtonsoftSerializer : IDisposable
+public class JsonNewtonsoftSerializer<T> : IDisposable
 {
     private readonly JsonSerializer _serializer;
 
@@ -45,16 +45,25 @@ public class JsonNewtonsoftSerializer : IDisposable
     /// </summary>
     public JsonNewtonsoftSerializer() : this(DefaultSettings) { }
 
-    public string? Serialize(object? obj) {
-        if (obj == null) return null;
+    public string? Serialize(object? obj)
+    {
+        if (obj == null)
+        {
+            return null;
+        }
 
         _serializer.Serialize(_jsonTextWriter, obj, obj.GetType());
 
         return _stringWriter.ToString();
     }
 
-    public T? Deserialize<T>(string response)
+    public T? Deserialize(string? response)
     {
+        if (string.IsNullOrEmpty(response))
+        {
+            return default;
+        }
+
         using var reader = new JsonTextReader(new StringReader(response)) { CloseInput = true };
         return _serializer.Deserialize<T>(reader);
     }

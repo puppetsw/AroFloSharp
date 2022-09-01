@@ -1,9 +1,11 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 using AroFloSharp.Client;
 using AroFloSharp.Client.Enums;
 using AroFloSharp.Client.Helpers;
-using AroFloSharp.Client.Parameters;
 using AroFloSharp.Serialization.Models;
 using AroFloSharp.Serialization.Response;
 using AroFloSharp.Serialization.Serializer;
@@ -12,45 +14,47 @@ using NUnit.Framework;
 namespace AroFloSharp.Tests;
 
 [TestFixture]
-public class SerializationTests
+public class XmlSerializationTests
 {
-    [Test]
-    public async Task Test_basic_deserialization_Projects()
+    private string _testData;
+
+    [SetUp]
+    public async Task Test_Setup()
     {
         using var client = new AroFloSharpClient(config =>
         {
+            config.DataFormat = DataFormat.Xml;
             config.SecretKey = Credentials.SECRET_KEY;
             config.UEncode = Credentials.U_ENCODE;
             config.PEncode = Credentials.P_ENCODE;
             config.OrgEncode = Credentials.ORG_ENCODE;
         });
 
-        var data = await client.GetResponseAsync(parameters =>
+        _testData = await client.GetResponseAsync(parameters =>
         {
             parameters.AddZone(Zone.Projects);
-            // parameters.AddWhereAnd("projectnunber", "20", ComparisonOperator.Equal);
-            // parameters.Add(new ZoneParameter(AroFloZone.Projects));
-            // parameters.Add(new AndParameter("projectnumber", "20", ComparisonOperator.Equal));
-            // parameters.Add(new PageParameter(1));
-            // parameters.Add(new PageSizeParameter(500));
-            // parameters.Add(new AndParameter("status", "open", ComparisonOperator.Equal));
         });
+    }
 
-        var serializer = new JsonNewtonsoftSerializer();
+    [TearDown]
+    public void Test_Cleanup() { }
 
-        var projects = serializer.Deserialize<Response<ProjectZoneResponse>>(data);
-
+    [Test]
+    public void Test_xml_deserialization()
+    {
+        var serializer = new XmlNetSerializer<Response<ProjectZoneResponse>>();
+        var projects = serializer.Deserialize(_testData);
         Assert.IsTrue(projects.ZoneResponse.Projects.Count > 0);
     }
 
     [Test]
-    public void Test_basic_serialization_Project()
+    public void Test_xml_serialize()
     {
         var project = new Project { ProjectId = "TEST" };
 
-        using var serializer = new JsonNewtonsoftSerializer();
-
+        using var serializer = new XmlNetSerializer<Project>();
         var result = serializer.Serialize(project);
+
         Console.WriteLine(result);
     }
 }
