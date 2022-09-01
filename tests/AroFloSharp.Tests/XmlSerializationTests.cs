@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using AroFloSharp.Client;
 using AroFloSharp.Client.Enums;
 using AroFloSharp.Client.Helpers;
@@ -42,8 +38,7 @@ public class XmlSerializationTests
     [Test]
     public void Test_xml_deserialization()
     {
-        var serializer = new XmlNetSerializer<Response<ProjectZoneResponse>>();
-        var projects = serializer.Deserialize(_testData);
+        var projects = XmlNetSerializer.Deserialize<Response<ProjectZoneResponse>>(_testData);
         Assert.IsTrue(projects.ZoneResponse.Projects.Count > 0);
     }
 
@@ -51,10 +46,7 @@ public class XmlSerializationTests
     public void Test_xml_serialize()
     {
         var project = new Project { ProjectId = "TEST" };
-
-        using var serializer = new XmlNetSerializer<Project>();
-        var result = serializer.Serialize(project);
-
-        Console.WriteLine(result);
+        var result = XmlNetSerializer.Serialize(project);
+        Assert.IsTrue(TestHelpers.IsXml(result));
     }
 }

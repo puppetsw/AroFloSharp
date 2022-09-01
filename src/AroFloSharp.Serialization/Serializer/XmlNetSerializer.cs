@@ -1,51 +1,39 @@
-﻿using System;
-using System.IO;
+﻿using System.IO;
 using System.Xml.Serialization;
 
 #nullable enable
 
-namespace AroFloSharp.Serialization.Serializer
+namespace AroFloSharp.Serialization.Serializer;
+
+public static class XmlNetSerializer
 {
-    public class XmlNetSerializer<T> : IDisposable where T : class
+    public static string ContentType { get; } = "application/xml";
+
+    public static string? Serialize(object? obj)
     {
-        private readonly XmlSerializer _serializer;
-
-        public string ContentType { get; } = "application/xml";
-
-        /// <summary>
-        /// Create the new serializer that uses XmlSerializer with default settings
-        /// </summary>
-        public XmlNetSerializer()
+        if (obj == null)
         {
-            _serializer = new XmlSerializer(typeof(T));
+            return null;
         }
 
-        public string? Serialize(object? obj)
+        using var textWriter = new StringWriter();
+
+        var serializer = new XmlSerializer(obj.GetType());
+        serializer.Serialize(textWriter, obj);
+
+        return textWriter.ToString();
+    }
+
+    public static T? Deserialize<T>(string? response)
+    {
+        if (string.IsNullOrEmpty(response))
         {
-            if (obj == null)
-            {
-                return null;
-            }
-
-            using var textWriter = new StringWriter();
-
-            _serializer.Serialize(textWriter, obj);
-
-            return textWriter.ToString();
+            return default;
         }
 
-        public T? Deserialize(string? response)
-        {
-            if (string.IsNullOrEmpty(response))
-            {
-                return null;
-            }
+        using var textReader = new StringReader(response);
+        var serializer = new XmlSerializer(typeof(T));
 
-            using var textReader = new StringReader(response);
-
-            return (T)_serializer.Deserialize(textReader);
-        }
-
-        public void Dispose() { }
+        return (T)serializer.Deserialize(textReader);
     }
 }

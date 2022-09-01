@@ -1,20 +1,20 @@
-﻿using System.Xml.Serialization;
-using Newtonsoft.Json;
+﻿using System.Text.Json.Serialization;
+using System.Xml.Serialization;
 
 namespace AroFloSharp.Serialization.Response;
 
 [XmlRoot("imsapi")]
 public class Response<T> where T : ZoneResponseBase
 {
-    [JsonProperty("status")]
+    [JsonPropertyName("status")]
     [XmlElement("status")]
     public string Status { get; set; }
 
-    [JsonProperty("statusmessage")]
+    [JsonPropertyName("statusmessage")]
     [XmlElement("statusmessage")]
     public string StatusMessage { get; set; }
 
-    [JsonProperty("zoneresponse")]
+    [JsonPropertyName("zoneresponse")]
     [XmlElement("zoneresponse")]
     public T ZoneResponse { get; set; }
 

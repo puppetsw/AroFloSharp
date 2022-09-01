@@ -1,13 +1,13 @@
 ﻿using System.Collections.Generic;
+using System.Text.Json.Serialization;
 using System.Xml.Serialization;
 using AroFloSharp.Serialization.Models;
-using Newtonsoft.Json;
 
 namespace AroFloSharp.Serialization.Response;
 
 public sealed class ProjectZoneResponse : ZoneResponseBase
 {
-    [JsonProperty("projects")]
+    [JsonPropertyName("projects")]
     [XmlArrayItem("project")]
     [XmlArray("projects")]
     public List<Project> Projects { get; set; }

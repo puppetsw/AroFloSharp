@@ -1,43 +1,43 @@
-﻿using System.Xml.Serialization;
-using Newtonsoft.Json;
+﻿using System.Text.Json.Serialization;
+using System.Xml.Serialization;
 
 namespace AroFloSharp.Serialization.Models;
 
 public class Project
 {
-    [JsonProperty("status")]
+    [JsonPropertyName("status")]
     [XmlElement("status")]
     public string Status { get; set; }
 
-    [JsonProperty("client")]
+    [JsonPropertyName("client")]
     [XmlElement("client")]
     public Client Client { get; set; }
 
-    [JsonProperty("location")]
+    [JsonPropertyName("location")]
     [XmlElement("location")]
     public Location Location { get; set; }
 
-    [JsonProperty("projectid")]
+    [JsonPropertyName("projectid")]
     [XmlElement("projectid")]
     public string ProjectId { get; set; }
 
-    [JsonProperty("projectnumber")]
+    [JsonPropertyName("projectnumber")]
     [XmlElement("projectnumber")]
     public int ProjectNumber { get; set; }
 
-    [JsonProperty("projectname")]
+    [JsonPropertyName("projectname")]
     [XmlElement("projectname")]
     public string ProjectName { get; set; }
 
-    [JsonProperty("projecttype")]
+    [JsonPropertyName("projecttype")]
     [XmlElement("projecttype")]
     public ProjectType ProjectType { get; set; }
 
-    [JsonProperty("custon")]
+    [JsonPropertyName("custon")]
     [XmlElement("custon")]
     public string CustomerOrderNumber { get; set; }
 
-    [JsonProperty("description")]
+    [JsonPropertyName("description")]
     [XmlElement("description")]
     public string Description { get; set; }
 }

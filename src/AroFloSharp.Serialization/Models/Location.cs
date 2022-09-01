@@ -1,45 +1,45 @@
 ﻿using System;
 using System.ComponentModel;
+using System.Text.Json.Serialization;
 using System.Xml.Serialization;
-using Newtonsoft.Json;
 
 namespace AroFloSharp.Serialization.Models
 {
     public class Location
     {
-        [JsonProperty("locationid")]
+        [JsonPropertyName("locationid")]
         [XmlElement("locationid")]
         public string LocationId { get; set; }
 
-        [JsonProperty("locationname")]
+        [JsonPropertyName("locationname")]
         [XmlElement("locationname")]
         public string LocationName { get; set; }
 
-        [JsonProperty("gpslat")]
+        [JsonPropertyName("gpslat")]
         [XmlElement("gpslat")]
         public double Latitude { get; set; }
 
-        [JsonProperty("gpslong")]
+        [JsonPropertyName("gpslong")]
         [XmlElement("gpslong")]
         public double Longitude { get; set; }
 
-        [JsonProperty("postcode")]
+        [JsonPropertyName("postcode")]
         [XmlElement("postcode")]
         public string PostCode { get; set; }
 
-        [JsonProperty("state")]
+        [JsonPropertyName("state")]
         [XmlElement("state")]
         public string State { get; set; }
 
-        [JsonProperty("country")]
+        [JsonPropertyName("country")]
         [XmlElement("country")]
         public string Country { get; set; }
 
-        [JsonProperty("suburb")]
+        [JsonPropertyName("suburb")]
         [XmlElement("suburb")]
         public string Suburb { get; set; }
 
-        [JsonProperty("archived")]
+        [JsonPropertyName("archived")]
         [XmlElement("archived")]
         [Obsolete("Use the IsArchived property.", false)]
         [Browsable(false)]
@@ -70,7 +70,7 @@ namespace AroFloSharp.Serialization.Models
         }
 #pragma warning restore CS0618
 
-        [JsonProperty("address")]
+        [JsonPropertyName("address")]
         [XmlElement("address")]
         public string Address { get; set; }
     }
