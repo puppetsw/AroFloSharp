@@ -5,7 +5,7 @@ using AroFloSharp.Serialization.Models;
 
 namespace AroFloSharp.Serialization.Response;
 
-public sealed class ProjectZoneResponse : ZoneResponseBase
+public sealed class ProjectZone : ZoneResponseBase
 {
     [JsonPropertyName("projects")]
     [XmlArrayItem("project")]
