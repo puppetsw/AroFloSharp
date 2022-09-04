@@ -13,10 +13,7 @@ public static class XmlNetSerializer
 {
     private const string ARRAY_OF = "ArrayOf";
 
-    private static readonly XmlWriterSettings s_xmlWriterSettings = new()
-    {
-        OmitXmlDeclaration = true
-    };
+    private static readonly XmlWriterSettings s_xmlWriterSettings = new() { OmitXmlDeclaration = true };
 
     private static readonly XmlSerializerNamespaces s_xmlSerializerNamespaces = new(new[] { XmlQualifiedName.Empty });
 
