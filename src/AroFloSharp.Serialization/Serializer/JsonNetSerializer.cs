@@ -1,5 +1,6 @@
 ﻿using System.Text.Json;
 using System.Text.Json.Serialization;
+using AroFloSharp.Serialization.Response;
 
 #nullable enable
 
@@ -14,18 +15,13 @@ public static class JsonNetSerializer
         NumberHandling = JsonNumberHandling.AllowReadingFromString
     };
 
-    public static string? Serialize(object? data)
-    {
-        return JsonSerializer.Serialize(data, JsonSerializerOptions);
-    }
-
-    public static T? Deserialize<T>(string? response)
+    public static Response<T>? Deserialize<T>(string? response) where T : ZoneResponseBase
     {
         if (response is null)
         {
             return default;
         }
 
-        return JsonSerializer.Deserialize<T>(response, JsonSerializerOptions);
+        return JsonSerializer.Deserialize<Response<T>>(response, JsonSerializerOptions);
     }
 }

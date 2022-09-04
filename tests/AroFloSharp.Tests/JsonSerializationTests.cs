@@ -43,18 +43,9 @@ public class JsonSerializationTests
     }
 
     [Test]
-    public async Task Test_basic_deserialization_Projects()
+    public void Test_basic_deserialization_Projects()
     {
-        var projects = JsonNetSerializer.Deserialize<Response<ProjectZone>>(_testData);
-        Assert.IsTrue(projects.ZoneResponse.Projects.Count > 0);
+        var projects = JsonNetSerializer.Deserialize<ProjectZone>(_testData);
+        Assert.IsTrue(projects?.ZoneResponse.Projects.Count > 0);
     }
-
-    [Test]
-    public void Test_basic_serialization_Project()
-    {
-        var project = new Project { ProjectId = "TEST" };
-        var result = JsonNetSerializer.Serialize(project);
-        Assert.IsTrue(TestHelpers.IsJson(result));
-    }
-
 }

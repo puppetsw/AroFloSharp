@@ -1,39 +1,57 @@
-﻿using System.IO;
-using System.Xml.Serialization;
+﻿#nullable enable
 
-#nullable enable
+using System.Collections.Generic;
+using System.IO;
+using System.Xml;
+using System.Xml.Serialization;
+using AroFloSharp.Serialization.Response;
 
 namespace AroFloSharp.Serialization.Serializer;
 
 public static class XmlNetSerializer
 {
-    public static string ContentType { get; } = "application/xml";
+    private static readonly XmlWriterSettings s_xmlWriterSettings = new()
+    {
+        OmitXmlDeclaration = true
+    };
 
-    public static string? Serialize(object? obj)
+    private static readonly XmlSerializerNamespaces s_xmlSerializerNamespaces = new(new[] { XmlQualifiedName.Empty });
+
+    public static string? Serialize<T>(T? obj)
     {
         if (obj == null)
         {
             return null;
         }
 
-        using var textWriter = new StringWriter();
+        var list = new List<T> { obj };
+        var serializer = new XmlSerializer(list.GetType());
 
-        var serializer = new XmlSerializer(obj.GetType());
-        serializer.Serialize(textWriter, obj);
+        using var stream = new StringWriter();
+        using var writer = XmlWriter.Create(stream, s_xmlWriterSettings);
 
-        return textWriter.ToString();
+        serializer.Serialize(writer, list, s_xmlSerializerNamespaces);
+
+        // Replace ArrayOf string with the zones name.
+        // i.e. ArrayOfProject becomes Projects, ArrayOfClient becomes Clients
+        var objectName = typeof(T).Name;
+        var xml = stream.ToString();
+        var formatted = xml.Replace($"ArrayOf{objectName}", $"{objectName}s");
+        return formatted;
     }
 
-    public static T? Deserialize<T>(string? response)
+    public static Response<T>? Deserialize<T>(string? response) where T : ZoneResponseBase
     {
         if (string.IsNullOrEmpty(response))
         {
             return default;
         }
 
-        using var textReader = new StringReader(response);
-        var serializer = new XmlSerializer(typeof(T));
+        var serializationType = typeof(Response<T>);
 
-        return (T)serializer.Deserialize(textReader);
+        using var textReader = new StringReader(response);
+        var serializer = new XmlSerializer(serializationType);
+
+        return (Response<T>?)serializer.Deserialize(textReader);
     }
 }
