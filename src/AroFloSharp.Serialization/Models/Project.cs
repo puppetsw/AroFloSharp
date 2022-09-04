@@ -3,7 +3,7 @@ using System.Xml.Serialization;
 
 namespace AroFloSharp.Serialization.Models;
 
-public class Project
+public class Project : AroFloObjectBase
 {
     [JsonPropertyName("status")]
     [XmlElement("status")]

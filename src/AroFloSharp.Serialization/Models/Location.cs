@@ -5,7 +5,7 @@ using System.Xml.Serialization;
 
 namespace AroFloSharp.Serialization.Models
 {
-    public class Location
+    public class Location : AroFloObjectBase
     {
         [JsonPropertyName("locationid")]
         [XmlElement("locationid")]

@@ -2,7 +2,7 @@
 
 namespace AroFloSharp.Serialization.Models
 {
-    public class ProjectType
+    public class ProjectType : AroFloObjectBase
     {
         [XmlElement("projecttypeid")]
         public string Id { get; set; }

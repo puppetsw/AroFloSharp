@@ -2,7 +2,7 @@
 
 namespace AroFloSharp.Serialization.Models
 {
-    public class Client
+    public class Client : AroFloObjectBase
     {
         [XmlElement("orgid")]
         public string Id { get; set; }

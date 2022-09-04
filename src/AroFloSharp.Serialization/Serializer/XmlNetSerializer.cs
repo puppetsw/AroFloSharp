@@ -4,12 +4,15 @@ using System.Collections.Generic;
 using System.IO;
 using System.Xml;
 using System.Xml.Serialization;
+using AroFloSharp.Serialization.Models;
 using AroFloSharp.Serialization.Response;
 
 namespace AroFloSharp.Serialization.Serializer;
 
 public static class XmlNetSerializer
 {
+    private const string ARRAY_OF = "ArrayOf";
+
     private static readonly XmlWriterSettings s_xmlWriterSettings = new()
     {
         OmitXmlDeclaration = true
@@ -17,7 +20,13 @@ public static class XmlNetSerializer
 
     private static readonly XmlSerializerNamespaces s_xmlSerializerNamespaces = new(new[] { XmlQualifiedName.Empty });
 
-    public static string? Serialize<T>(T? obj)
+    /// <summary>
+    /// Serialize Model into Postable XML.
+    /// </summary>
+    /// <typeparam name="T"/>
+    /// <param name="obj">The <see cref="AroFloObjectBase"/> object to be serialized.</param>
+    /// <returns>A <see cref="string"/> containing <c>postxml</c> for AroFlo.</returns>
+    public static string? Serialize<T>(T? obj) where T : AroFloObjectBase
     {
         if (obj == null)
         {
@@ -36,7 +45,7 @@ public static class XmlNetSerializer
         // i.e. ArrayOfProject becomes Projects, ArrayOfClient becomes Clients
         var objectName = typeof(T).Name;
         var xml = stream.ToString();
-        var formatted = xml.Replace($"ArrayOf{objectName}", $"{objectName}s");
+        var formatted = xml.Replace($"{ARRAY_OF}{objectName}", $"{objectName}s");
         return formatted;
     }
 
