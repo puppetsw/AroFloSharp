@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using AroFloSharp.Client;
 using AroFloSharp.Client.Enums;
 using AroFloSharp.Client.Helpers;
@@ -47,6 +48,19 @@ public class XmlSerializationTests
     {
         var project = new Project { ProjectId = "TEST" };
         var result = XmlNetSerializer.Serialize(project);
+        Assert.IsTrue(TestHelpers.IsXml(result));
+    }
+
+    [Test]
+    public void Test_xml_serialize_multiple()
+    {
+        var project1 = new Project { ProjectId = "TEST1" };
+        var project2 = new Project { ProjectId = "TEST2" };
+
+        var projects = new[] { project1, project2 };
+
+        var result = XmlNetSerializer.Serialize(projects);
+        Console.WriteLine(result);
         Assert.IsTrue(TestHelpers.IsXml(result));
     }
 }
