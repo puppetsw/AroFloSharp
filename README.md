@@ -47,7 +47,7 @@ parameters =>
     parameters.AddPageNumber(1);
 });
 
-var projects = JsonNetSerializer.Deserialize<Response<ProjectZoneResponse>>(response);
+var projects = JsonNetSerializer.Deserialize<Response<ProjectZone>>(response);
 ```
 
 The above example will generate the following AroFlo request string. `zone=projects&page=1` The API keys can be accessed after setting up and being approved for the AroFlo API access. By default the client returns data in Json format. But can be changed to XML with `config.DataFormat`.
