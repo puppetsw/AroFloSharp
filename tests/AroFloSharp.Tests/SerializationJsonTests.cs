@@ -45,7 +45,7 @@ public class SerializationJsonTests
     [Test]
     public void Test_basic_deserialization_Projects()
     {
-        var projects = JsonNetSerializer.Deserialize<ProjectZone>(_testData);
+        var projects = JsonNetSerializer.Deserialize<ProjectsZone>(_testData);
         Assert.IsTrue(projects?.ZoneResponse.Projects.Count > 0);
     }
 }

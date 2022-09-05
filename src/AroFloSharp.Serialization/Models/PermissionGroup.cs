@@ -3,7 +3,7 @@ using System.Xml.Serialization;
 
 namespace AroFloSharp.Serialization.Models;
 
-public class PermissionGroup
+public class PermissionGroup : AroFloObjectBase
 {
     [JsonPropertyName("groupid")]
     [XmlElement("groupid")]

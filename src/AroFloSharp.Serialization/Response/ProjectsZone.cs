@@ -5,7 +5,7 @@ using AroFloSharp.Serialization.Models;
 
 namespace AroFloSharp.Serialization.Response;
 
-public sealed class ProjectZone : ZoneResponseBase
+public sealed class ProjectsZone : ZoneResponseBase
 {
     public override bool IsReadOnly => true;
     public override string[] ValidWhereFilters { get; } = { "projectid", "orgid", "projectnumber", "projectname" };

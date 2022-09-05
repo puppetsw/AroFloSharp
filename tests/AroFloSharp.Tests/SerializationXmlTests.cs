@@ -40,7 +40,7 @@ public class SerializationXmlTests
     [Test]
     public void Test_xml_deserialization()
     {
-        var projects = XmlNetSerializer.Deserialize<ProjectZone>(_testData);
+        var projects = XmlNetSerializer.Deserialize<ProjectsZone>(_testData);
         Assert.IsTrue(projects.ZoneResponse.Projects.Count > 0);
     }
 
