@@ -12,5 +12,6 @@ public enum Zone
     Tasks,
     Users,
     LastUpdate,
-    BusinessUnits
+    BusinessUnits,
+    PermissionGroups
 }

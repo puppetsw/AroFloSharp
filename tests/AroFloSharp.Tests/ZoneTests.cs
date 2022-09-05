@@ -170,4 +170,69 @@ public class ZoneTests
         Assert.IsTrue(businessUnits.ZoneResponse.BusinessUnits.Any(x => x.Locations.Count > 0));
         Assert.IsTrue(businessUnits.ZoneResponse.BusinessUnits.Count > 0);
     }
+
+    [Test]
+    public async Task Test_permissiongroups_zone_get_json()
+    {
+        using var client = new AroFloSharpClient(
+            config =>
+            {
+                config.SecretKey = Credentials.SECRET_KEY;
+                config.UEncode = Credentials.U_ENCODE;
+                config.PEncode = Credentials.P_ENCODE;
+                config.OrgEncode = Credentials.ORG_ENCODE;
+            });
+        var response = await client.GetResponseAsync(
+            parameters =>
+            {
+                parameters.AddZone(Zone.PermissionGroups);
+                parameters.AddPageNumber(1);
+            });
+
+        var permissionGroups = JsonNetSerializer.Deserialize<PermissionGroupsZone>(response);
+
+        foreach (var update in permissionGroups.ZoneResponse.PermissionGroups)
+        {
+            var properties = update.GetType().GetProperties();
+            foreach (var property in properties)
+            {
+                Console.WriteLine($"{property.Name}: {property.GetValue(update)}");
+            }
+        }
+
+        Assert.IsTrue(permissionGroups.ZoneResponse.PermissionGroups.Count > 0);
+    }
+
+    [Test]
+    public async Task Test_permissiongroups_zone_get_xml()
+    {
+        using var client = new AroFloSharpClient(
+            config =>
+            {
+                config.DataFormat = DataFormat.Xml;
+                config.SecretKey = Credentials.SECRET_KEY;
+                config.UEncode = Credentials.U_ENCODE;
+                config.PEncode = Credentials.P_ENCODE;
+                config.OrgEncode = Credentials.ORG_ENCODE;
+            });
+        var response = await client.GetResponseAsync(
+            parameters =>
+            {
+                parameters.AddZone(Zone.PermissionGroups);
+                parameters.AddPageNumber(1);
+            });
+
+        var permissionGroups = XmlNetSerializer.Deserialize<PermissionGroupsZone>(response);
+
+        foreach (var update in permissionGroups.ZoneResponse.PermissionGroups)
+        {
+            var properties = update.GetType().GetProperties();
+            foreach (var property in properties)
+            {
+                Console.WriteLine($"{property.Name}: {property.GetValue(update)}");
+            }
+        }
+
+        Assert.IsTrue(permissionGroups.ZoneResponse.PermissionGroups.Count > 0);
+    }
 }

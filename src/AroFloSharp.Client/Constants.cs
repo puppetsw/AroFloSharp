@@ -60,6 +60,8 @@ public static class Constants
 
     public const string BUSINESS_UNITS = "businessunits";
 
+    public const string PERMISSION_GROUPS = "permissiongroups";
+
     // Other strings
 
     public const string ASCENDING = "asc";
@@ -75,7 +77,8 @@ public static class Constants
         {Zone.Tasks, TASKS},
         {Zone.Users, USERS},
         {Zone.LastUpdate, LAST_UPDATE},
-        {Zone.BusinessUnits, BUSINESS_UNITS}
+        {Zone.BusinessUnits, BUSINESS_UNITS},
+        {Zone.PermissionGroups, PERMISSION_GROUPS}
     };
 
     public static readonly Dictionary<ParameterType, string> ParameterTypes = new()
