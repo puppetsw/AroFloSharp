@@ -1,4 +1,6 @@
-﻿using System;
+﻿#nullable enable
+
+using System;
 using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
@@ -6,8 +8,6 @@ using AroFloSharp.Client.Enums;
 using AroFloSharp.Client.Helpers;
 using AroFloSharp.Client.Parameters;
 using AroFloSharp.Client.Request;
-
-#nullable enable
 
 namespace AroFloSharp.Client;
 
@@ -38,6 +38,7 @@ public class AroFloSharpClient : IDisposable
         }
 
         using var request = new RequestMessage();
+        request.Method = HttpMethod.Get;
         request.Parameters.AddRange(parameters);
         request.RequestUri = new Uri($"{Constants.AROFLO_API_URL}?{request.Parameters}");
         request.AddDefaultHeaders(_config);
