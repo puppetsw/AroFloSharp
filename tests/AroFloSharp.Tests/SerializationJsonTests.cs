@@ -10,7 +10,7 @@ using NUnit.Framework;
 namespace AroFloSharp.Tests;
 
 [TestFixture]
-public class JsonSerializationTests
+public class SerializationJsonTests
 {
     private string _testData;
 

@@ -56,6 +56,8 @@ public static class Constants
 
     public const string USERS = "users";
 
+    public const string LAST_UPDATE = "lastupdate";
+
     // Other strings
 
     public const string ASCENDING = "asc";
@@ -69,7 +71,8 @@ public static class Constants
         {Zone.Clients, CLIENTS},
         {Zone.Locations, LOCATIONS},
         {Zone.Tasks, TASKS},
-        {Zone.Users, USERS}
+        {Zone.Users, USERS},
+        {Zone.LastUpdate, LAST_UPDATE}
     };
 
     public static readonly Dictionary<ParameterType, string> ParameterTypes = new()

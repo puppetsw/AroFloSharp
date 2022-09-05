@@ -6,12 +6,13 @@ using AroFloSharp.Client.Helpers;
 using AroFloSharp.Serialization.Models;
 using AroFloSharp.Serialization.Response;
 using AroFloSharp.Serialization.Serializer;
+using AroFloSharp.Tests.Helpers;
 using NUnit.Framework;
 
 namespace AroFloSharp.Tests;
 
 [TestFixture]
-public class XmlSerializationTests
+public class SerializationXmlTests
 {
     private string _testData;
 

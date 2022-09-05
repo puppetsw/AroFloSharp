@@ -1,18 +1,18 @@
-﻿using System.Text.Json;
-using System.Text.Json.Serialization;
-using AroFloSharp.Serialization.Response;
+﻿#nullable enable
 
-#nullable enable
+using System.Text.Json;
+using System.Text.Json.Serialization;
+using AroFloSharp.Serialization.Converters;
+using AroFloSharp.Serialization.Response;
 
 namespace AroFloSharp.Serialization.Serializer;
 
 public static class JsonNetSerializer
 {
-    public static string ContentType { get; } = "application/json";
-
-    public static readonly JsonSerializerOptions JsonSerializerOptions = new()
+    private static readonly JsonSerializerOptions s_jsonSerializerOptions = new()
     {
-        NumberHandling = JsonNumberHandling.AllowReadingFromString
+        NumberHandling = JsonNumberHandling.AllowReadingFromString,
+        Converters = { new DateTimeJsonConverter() }
     };
 
     public static Response<T>? Deserialize<T>(string? response) where T : ZoneResponseBase
@@ -22,6 +22,6 @@ public static class JsonNetSerializer
             return default;
         }
 
-        return JsonSerializer.Deserialize<Response<T>>(response, JsonSerializerOptions);
+        return JsonSerializer.Deserialize<Response<T>>(response, s_jsonSerializerOptions);
     }
 }
