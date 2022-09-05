@@ -58,6 +58,8 @@ public static class Constants
 
     public const string LAST_UPDATE = "lastupdate";
 
+    public const string BUSINESS_UNITS = "businessunits";
+
     // Other strings
 
     public const string ASCENDING = "asc";
@@ -72,7 +74,8 @@ public static class Constants
         {Zone.Locations, LOCATIONS},
         {Zone.Tasks, TASKS},
         {Zone.Users, USERS},
-        {Zone.LastUpdate, LAST_UPDATE}
+        {Zone.LastUpdate, LAST_UPDATE},
+        {Zone.BusinessUnits, BUSINESS_UNITS}
     };
 
     public static readonly Dictionary<ParameterType, string> ParameterTypes = new()
@@ -100,5 +103,4 @@ public static class Constants
         {StatementOperator.And, AND},
         {StatementOperator.Or, OR}
     };
-
 }

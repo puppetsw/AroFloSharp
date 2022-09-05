@@ -1,4 +1,6 @@
-﻿using System;
+﻿#nullable enable
+
+using System;
 using System.Xml.Linq;
 
 namespace AroFloSharp.Tests.Helpers;
@@ -27,5 +29,10 @@ public static class TestHelpers
         }
 
         return false;
+    }
+
+    public static void WritePropertiesToConsole(object? obj)
+    {
+
     }
 }

@@ -11,5 +11,6 @@ public enum Zone
     Locations,
     Tasks,
     Users,
-    LastUpdate
+    LastUpdate,
+    BusinessUnits
 }

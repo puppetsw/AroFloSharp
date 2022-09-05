@@ -7,12 +7,12 @@ namespace AroFloSharp.Serialization.Response;
 
 public sealed class ProjectZone : ZoneResponseBase
 {
+    public override bool IsReadOnly => true;
+    public override string[] ValidWhereFilters { get; } = { "projectid", "orgid", "projectnumber", "projectname" };
+    public override string[] ValidJoins { get; } = { };
+
     [JsonPropertyName("projects")]
     [XmlArrayItem("project")]
     [XmlArray("projects")]
     public List<Project> Projects { get; set; }
-
-    public override bool IsReadOnly => true;
-
-    public override string[] ValidWhereFilters { get; } = { "projectid", "orgid", "projectnumber", "projectname" };
 }

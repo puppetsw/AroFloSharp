@@ -20,5 +20,13 @@ public class LastUpdate : AroFloObjectBase
 
     [JsonPropertyName("lastupdateutc")]
     [XmlElement("lastupdateutc")]
-    public DateTime LastUpdateUtc { get; set; }
+    public string LastUpdateUtcString
+    {
+        get => LastUpdateUtc.ToString("yyyy-MM-dd HH:mm:ss");
+        set => LastUpdateUtc = DateTime.Parse(value);
+    }
+
+    [JsonIgnore]
+    [XmlIgnore]
+    public DateTime LastUpdateUtc { get; private set; }
 }

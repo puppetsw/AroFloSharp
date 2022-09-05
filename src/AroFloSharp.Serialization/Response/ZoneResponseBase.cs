@@ -13,6 +13,10 @@ public abstract class ZoneResponseBase
     [XmlIgnore]
     public abstract string[] ValidWhereFilters { get; }
 
+    [JsonIgnore]
+    [XmlIgnore]
+    public abstract string[] ValidJoins { get; }
+
     public int MaxPageResults { get; set; }
 
     public int PageNumber { get; set; }

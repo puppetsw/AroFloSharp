@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 
@@ -13,7 +14,6 @@ public class DateTimeJsonConverter : JsonConverter<DateTime>
 
     public override void Write(Utf8JsonWriter writer, DateTime value, JsonSerializerOptions options)
     {
-        // writer.WriteStringValue(value.ToString());
-        throw new NotImplementedException();
+        writer.WriteStringValue(value.ToString(CultureInfo.InvariantCulture));
     }
 }
