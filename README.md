@@ -122,7 +122,7 @@ Studio 2022 installed - you can download the Community edition from
 `dotnet build ./src/AroFloSharp.Client.csproj`<br>
 `dotnet build ./src/AroFloSharp.Serialization.csproj`
 
-Prior to building the Client project you will need to add a file called Credentials.cs containining your API keys for AroFlo. Please don't forget to ignore this file when submitting pull requests.
+Prior to building the Client project you will need to add a file called `Credentials.cs` containining your API keys for AroFlo. Please don't forget to ignore this file when submitting pull requests.
 
 ```cs
 public static class Credentials
