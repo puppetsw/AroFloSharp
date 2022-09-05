@@ -11,4 +11,8 @@ public class LastUpdateZone : ZoneResponseBase
     [XmlArrayItem("lastupdate")]
     [XmlArray("lastupdate")]
     public List<LastUpdate> LastUpdate { get; set; }
+
+    public override bool IsReadOnly => true;
+
+    public override string[] ValidWhereFilters { get; } = { "zonename", "lastupdateutc" };
 }

@@ -11,4 +11,8 @@ public sealed class ProjectZone : ZoneResponseBase
     [XmlArrayItem("project")]
     [XmlArray("projects")]
     public List<Project> Projects { get; set; }
+
+    public override bool IsReadOnly => true;
+
+    public override string[] ValidWhereFilters { get; } = { "projectid", "orgid", "projectnumber", "projectname" };
 }
