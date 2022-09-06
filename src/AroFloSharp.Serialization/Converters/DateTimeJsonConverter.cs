@@ -9,6 +9,9 @@ public class DateTimeJsonConverter : JsonConverter<DateTime>
 {
     public override DateTime Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
     {
+
+
+
         return DateTime.Parse(reader.GetString() ?? string.Empty);
     }
 

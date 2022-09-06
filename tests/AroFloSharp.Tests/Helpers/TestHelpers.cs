@@ -1,7 +1,11 @@
 ﻿#nullable enable
 
 using System;
+using System.CodeDom.Compiler;
+using System.IO;
+using System.Text;
 using System.Xml.Linq;
+using YamlDotNet.Serialization;
 
 namespace AroFloSharp.Tests.Helpers;
 
@@ -33,6 +37,14 @@ public static class TestHelpers
 
     public static void WritePropertiesToConsole(object? obj)
     {
+        if (obj is null)
+        {
+            return;
+        }
 
+        var stringBuilder = new StringBuilder();
+        var serializer = new Serializer();
+        serializer.Serialize(new IndentedTextWriter(new StringWriter(stringBuilder)), obj);
+        Console.WriteLine(stringBuilder);
     }
 }

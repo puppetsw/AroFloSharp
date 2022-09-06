@@ -8,6 +8,7 @@ using AroFloSharp.Serialization.Response;
 using AroFloSharp.Serialization.Serializer;
 using AroFloSharp.Tests.Helpers;
 using NUnit.Framework;
+using Task = System.Threading.Tasks.Task;
 
 namespace AroFloSharp.Tests;
 

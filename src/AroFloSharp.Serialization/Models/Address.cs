@@ -3,7 +3,7 @@ using System.Xml.Serialization;
 
 namespace AroFloSharp.Serialization.Models;
 
-public sealed class Address
+public class Address
 {
     [JsonPropertyName("country")]
     [XmlElement("country")]
