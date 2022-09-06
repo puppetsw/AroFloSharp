@@ -55,6 +55,7 @@ public static class Constants
     public const string BUSINESS_UNITS = "businessunits";
     public const string PERMISSION_GROUPS = "permissiongroups";
     public const string TIMESHEETS = "timesheets";
+    public const string TRANSACTION_TERMS = "transactionterms";
 
     // Other strings
 
@@ -73,7 +74,8 @@ public static class Constants
         {Zone.LastUpdate, LAST_UPDATE},
         {Zone.BusinessUnits, BUSINESS_UNITS},
         {Zone.PermissionGroups, PERMISSION_GROUPS},
-        {Zone.Timesheets, TIMESHEETS}
+        {Zone.Timesheets, TIMESHEETS},
+        {Zone.TransactionTerms, TRANSACTION_TERMS}
     };
 
     public static readonly Dictionary<ParameterType, string> ParameterTypes = new()

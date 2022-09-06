@@ -325,4 +325,26 @@ public class ZoneTests
         var timesheets = XmlNetSerializer.Deserialize<TimesheetsZone>(response);
         Assert.IsTrue(timesheets.ZoneResponse.Timesheets.Count > 0);
     }
+
+    [Test]
+    public async Task Test_transactionterms_zone_get_json()
+    {
+        using var client = new AroFloSharpClient(
+            config =>
+            {
+                config.SecretKey = Credentials.SECRET_KEY;
+                config.UEncode = Credentials.U_ENCODE;
+                config.PEncode = Credentials.P_ENCODE;
+                config.OrgEncode = Credentials.ORG_ENCODE;
+            });
+        var response = await client.GetResponseAsync(
+            parameters =>
+            {
+                parameters.AddZone(Zone.TransactionTerms);
+                parameters.AddPageNumber(1);
+            });
+
+        var transactionTerms = JsonNetSerializer.Deserialize<TransactionTermsZone>(response);
+        Assert.IsTrue(transactionTerms.ZoneResponse.TransactionTerms.Count > 0);
+    }
 }

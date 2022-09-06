@@ -14,5 +14,6 @@ public enum Zone
     LastUpdate,
     BusinessUnits,
     PermissionGroups,
-    Timesheets
+    Timesheets,
+    TransactionTerms
 }
