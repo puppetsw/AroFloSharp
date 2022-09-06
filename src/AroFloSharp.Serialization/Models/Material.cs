@@ -122,15 +122,61 @@ public class Material
     [XmlElement("purchaseorderqtyordered")]
     public string PurchaseOrderQtyOrdered { get; set; } // TODO: double?
 
-    // deletedtime
+    [JsonPropertyName("deletedtime")]
+    [XmlElement("deletedtime")]
+    [Browsable(false)]
+    public string DeletedTimeString
+    {
+        get => DeletedTime?.ToString(Constants.TIME_FORMAT);
+        set => DeletedTime = DateTimeHelpers.TrySetDate(value);
+    }
 
-    // dateused
+    [JsonIgnore]
+    [XmlIgnore]
+    public DateTime? DeletedTime { get; set; }
 
-    // itemid
+    [JsonPropertyName("dateused")]
+    [XmlElement("dateused")]
+    [Browsable(false)]
+    public string DateUsedString
+    {
+        get => DateUsed?.ToString(Constants.DATE_FORMAT);
+        set => DateUsed = DateTimeHelpers.TrySetDate(value);
+    }
 
-    // isinventory /bool
+    [JsonIgnore]
+    [XmlIgnore]
+    public DateTime? DateUsed { get; set; }
 
-    // deleteddatetime
+    [JsonPropertyName("itemid")]
+    [XmlElement("itemid")]
+    public string ItemId { get; set; }
+
+    [JsonPropertyName("isinventory")]
+    [XmlElement("isinventory")]
+    [Browsable(false)]
+    public string IsInventoryString
+    {
+        get => IsInventory.ToString();
+        set => IsInventory = bool.Parse(value);
+    }
+
+    [JsonIgnore]
+    [XmlIgnore]
+    public bool IsInventory { get; set; }
+
+    [JsonPropertyName("deleteddatetime")]
+    [XmlElement("deleteddatetime")]
+    [Browsable(false)]
+    public string DeletedDateTimeString
+    {
+        get => DeletedDateTime?.ToString(Constants.DATE_TIME_FORMAT);
+        set => DeletedDateTime = DateTimeHelpers.TrySetDate(value);
+    }
+
+    [JsonIgnore]
+    [XmlIgnore]
+    public DateTime? DeletedDateTime { get; set; }
 }
 
 public class TakenFrom
