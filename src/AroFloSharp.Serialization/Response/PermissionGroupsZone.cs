@@ -8,8 +8,9 @@ namespace AroFloSharp.Serialization.Response;
 public class PermissionGroupsZone : ZoneResponseBase
 {
     public override bool IsReadOnly => true;
-    public override string[] ValidWhereFilters { get; } = { };
+    public override string[] ValidWheres { get; } = { };
     public override string[] ValidJoins { get; } = { };
+    public override string[] ValidOrderBys { get; } = { };
 
     [JsonPropertyName("permissiongroups")]
     [XmlArrayItem("permissiongroup")]

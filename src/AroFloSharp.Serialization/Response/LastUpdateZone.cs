@@ -8,10 +8,9 @@ namespace AroFloSharp.Serialization.Response;
 public class LastUpdateZone : ZoneResponseBase
 {
     public override bool IsReadOnly => true;
-
-    public override string[] ValidWhereFilters { get; } = { "zonename", "lastupdateutc" };
-
+    public override string[] ValidWheres { get; } = { "zonename", "lastupdateutc" };
     public override string[] ValidJoins { get; } = { };
+    public override string[] ValidOrderBys { get; } = { };
 
     [JsonPropertyName("lastupdate")]
     [XmlArrayItem("lastupdate")]

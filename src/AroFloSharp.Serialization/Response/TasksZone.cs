@@ -9,7 +9,7 @@ public class TasksZone : ZoneResponseBase
 {
     public override bool IsReadOnly => false;
 
-    public override string[] ValidWhereFilters { get; } =
+    public override string[] ValidWheres { get; } =
     {
         "taskid", "clientname", "orgname", "orgid", "jobnumber", "tasktypeid", "status", "daterequested",
         "datetimerequested", "datecompleted", "datetimecompleted", "lastupdatedutc", "lastupdateddatetimeutc",
@@ -22,6 +22,11 @@ public class TasksZone : ZoneResponseBase
         "documentsandphotos", "notes", "assignedhistory", "material", "labour", "expense", "purchaseorders",
         "assets", "customfields", "location", "locationcustomfields", "project", "tasktotals", "substatus",
         "salesperson"
+    };
+
+    public override string[] ValidOrderBys { get; } =
+    {
+        "clientname", "orgname", "daterequested", "datecompleted", "lastupdated"
     };
 
     [JsonPropertyName("tasks")]

@@ -11,11 +11,15 @@ public abstract class ZoneResponseBase
 
     [JsonIgnore]
     [XmlIgnore]
-    public abstract string[] ValidWhereFilters { get; }
+    public abstract string[] ValidWheres { get; }
 
     [JsonIgnore]
     [XmlIgnore]
     public abstract string[] ValidJoins { get; }
+
+    [JsonIgnore]
+    [XmlIgnore]
+    public abstract string[] ValidOrderBys { get; }
 
     public int MaxPageResults { get; set; }
 

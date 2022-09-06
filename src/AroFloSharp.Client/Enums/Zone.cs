@@ -13,5 +13,6 @@ public enum Zone
     Users,
     LastUpdate,
     BusinessUnits,
-    PermissionGroups
+    PermissionGroups,
+    Timesheets
 }

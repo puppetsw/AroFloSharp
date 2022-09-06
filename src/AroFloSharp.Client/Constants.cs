@@ -47,20 +47,14 @@ public static class Constants
 
     // AroFlo Zones
     public const string PROJECTS = "projects";
-
     public const string CLIENTS = "clients";
-
     public const string LOCATIONS = "locations";
-
     public const string TASKS = "tasks";
-
     public const string USERS = "users";
-
     public const string LAST_UPDATE = "lastupdate";
-
     public const string BUSINESS_UNITS = "businessunits";
-
     public const string PERMISSION_GROUPS = "permissiongroups";
+    public const string TIMESHEETS = "timesheets";
 
     // Other strings
 
@@ -78,7 +72,8 @@ public static class Constants
         {Zone.Users, USERS},
         {Zone.LastUpdate, LAST_UPDATE},
         {Zone.BusinessUnits, BUSINESS_UNITS},
-        {Zone.PermissionGroups, PERMISSION_GROUPS}
+        {Zone.PermissionGroups, PERMISSION_GROUPS},
+        {Zone.Timesheets, TIMESHEETS}
     };
 
     public static readonly Dictionary<ParameterType, string> ParameterTypes = new()
