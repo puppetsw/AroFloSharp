@@ -8,8 +8,21 @@ namespace AroFloSharp.Serialization.Response;
 public class TasksZone : ZoneResponseBase
 {
     public override bool IsReadOnly => false;
-    public override string[] ValidWhereFilters { get; } // TODO
-    public override string[] ValidJoins { get; } // TODO
+
+    public override string[] ValidWhereFilters { get; } =
+    {
+        "taskid", "clientname", "orgname", "orgid", "jobnumber", "tasktypeid", "status", "daterequested",
+        "datetimerequested", "datecompleted", "datetimecompleted", "lastupdatedutc", "lastupdateddatetimeutc",
+        "duedate", "duedatetime", "linkprocessed", "linkprocesseddate", "linkprocesseddatetime", "deleteddate",
+        "deleteddatetime", "salesperson_givenname", "salesperson_surname", "salesperson_id"
+    };
+
+    public override string[] ValidJoins { get; } =
+    {
+        "documentsandphotos", "notes", "assignedhistory", "material", "labour", "expense", "purchaseorders",
+        "assets", "customfields", "location", "locationcustomfields", "project", "tasktotals", "substatus",
+        "salesperson"
+    };
 
     [JsonPropertyName("tasks")]
     [XmlArrayItem("task")]
