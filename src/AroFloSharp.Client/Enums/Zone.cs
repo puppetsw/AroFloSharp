@@ -15,5 +15,6 @@ public enum Zone
     BusinessUnits,
     PermissionGroups,
     Timesheets,
-    TransactionTerms
+    TransactionTerms,
+    Priorities
 }

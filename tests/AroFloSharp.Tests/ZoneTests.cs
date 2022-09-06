@@ -347,4 +347,53 @@ public class ZoneTests
         var transactionTerms = JsonNetSerializer.Deserialize<TransactionTermsZone>(response);
         Assert.IsTrue(transactionTerms.ZoneResponse.TransactionTerms.Count > 0);
     }
+
+    [Test]
+    public async Task Test_priorities_zone_get_json()
+    {
+        using var client = new AroFloSharpClient(
+            config =>
+            {
+                config.SecretKey = Credentials.SECRET_KEY;
+                config.UEncode = Credentials.U_ENCODE;
+                config.PEncode = Credentials.P_ENCODE;
+                config.OrgEncode = Credentials.ORG_ENCODE;
+            });
+        var response = await client.GetResponseAsync(
+            parameters =>
+            {
+                parameters.AddZone(Zone.Priorities);
+                parameters.AddPageNumber(1);
+            });
+
+        var priorities = JsonNetSerializer.Deserialize<PrioritiesZone>(response);
+        Assert.IsTrue(priorities.ZoneResponse.Priorities.Count > 0);
+    }
+
+    [Test]
+    public async Task Test_priorities_zone_get_xml()
+    {
+        using var client = new AroFloSharpClient(
+            config =>
+            {
+                config.DataFormat = DataFormat.Xml;
+                config.SecretKey = Credentials.SECRET_KEY;
+                config.UEncode = Credentials.U_ENCODE;
+                config.PEncode = Credentials.P_ENCODE;
+                config.OrgEncode = Credentials.ORG_ENCODE;
+            });
+        var response = await client.GetResponseAsync(
+            parameters =>
+            {
+                parameters.AddZone(Zone.Priorities);
+                parameters.AddPageNumber(1);
+            });
+
+        var priorities = XmlNetSerializer.Deserialize<PrioritiesZone>(response);
+        Assert.IsTrue(priorities.ZoneResponse.Priorities.Count > 0);
+    }
+
+
+
+
 }

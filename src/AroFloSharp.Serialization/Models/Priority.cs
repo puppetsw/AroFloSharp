@@ -24,4 +24,25 @@ public class Priority : AroFloObjectBase
     [JsonPropertyName("shortdescription")]
     [XmlElement("shortdescription")]
     public string ShortDescription { get; set; }
+
+    [JsonPropertyName("org")]
+    [XmlElement("org")]
+    public Organization Organization { get; set; }
+
+    [JsonPropertyName("backgroundcolor")]
+    [XmlElement("backgroundcolor")]
+    public string BackgroundColor { get; set; }
+
+    [JsonPropertyName("responsevalue")]
+    [XmlElement("responsevalue")]
+    public int ResponseValue { get; set; }
+
+    [JsonPropertyName("responsetype")]
+    [XmlElement("responsetype")]
+    public string ResponseType { get; set; }
+    
+    [JsonPropertyName("priorityno")]
+    [XmlElement("priorityno")]
+    public int ResponseNumber { get; set; }
+
 }

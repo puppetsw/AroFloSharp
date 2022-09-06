@@ -10,39 +10,26 @@ public static class Constants
 
     // Data Formats (Accept)
     public const string ACCEPT_JSON = "text/json";
-
     public const string ACCEPT_XML = "text/xml";
 
     // Comparison Operators
     public const string EQUAL = "=";
-
     public const string NOT_EQUAL = "!=";
-
     public const string GREATER_THAN = ">";
-
     public const string LESS_THAN = "<";
-
     public const string IN = "IN";
-
     public const string NOT_IN = "NOT IN";
 
     // Statement Operators
     public const string AND = "and";
-
     public const string OR = "or";
-
 
     // Param Types
     public const string ZONE = "zone";
-
     public const string PAGE = "page";
-
     public const string WHERE = "where";
-
     public const string ORDER = "order";
-
     public const string JOIN = "join";
-
     public const string PAGE_SIZE = "pageSize";
 
     // AroFlo Zones
@@ -56,6 +43,7 @@ public static class Constants
     public const string PERMISSION_GROUPS = "permissiongroups";
     public const string TIMESHEETS = "timesheets";
     public const string TRANSACTION_TERMS = "transactionterms";
+    public const string PRIORITIES = "priorities";
 
     // Other strings
 
@@ -75,7 +63,8 @@ public static class Constants
         {Zone.BusinessUnits, BUSINESS_UNITS},
         {Zone.PermissionGroups, PERMISSION_GROUPS},
         {Zone.Timesheets, TIMESHEETS},
-        {Zone.TransactionTerms, TRANSACTION_TERMS}
+        {Zone.TransactionTerms, TRANSACTION_TERMS},
+        {Zone.Priorities, PRIORITIES}
     };
 
     public static readonly Dictionary<ParameterType, string> ParameterTypes = new()
