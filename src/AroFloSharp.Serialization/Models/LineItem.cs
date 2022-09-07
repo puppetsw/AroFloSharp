@@ -3,7 +3,7 @@ using System.Xml.Serialization;
 
 namespace AroFloSharp.Serialization.Models;
 
-public class LineItem
+public class LineItem : AroFloObjectBase
 {
     [JsonPropertyName("worktypevalue")]
     [XmlElement("worktypevalue")]
