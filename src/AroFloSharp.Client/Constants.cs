@@ -45,6 +45,8 @@ public static class Constants
     public const string TRANSACTION_TERMS = "transactionterms";
     public const string PRIORITIES = "priorities";
     public const string CONTACTS = "contacts";
+    public const string QUOTES = "quotes";
+    public const string QUOTE_LINE_ITEMS = "quotelineitems";
 
     // Other strings
 
@@ -66,7 +68,9 @@ public static class Constants
         {Zone.Timesheets, TIMESHEETS},
         {Zone.TransactionTerms, TRANSACTION_TERMS},
         {Zone.Priorities, PRIORITIES},
-        {Zone.Contacts, CONTACTS}
+        {Zone.Contacts, CONTACTS},
+        {Zone.Quotes, QUOTES},
+        {Zone.QuoteLineItems, QUOTE_LINE_ITEMS}
     };
 
     public static readonly Dictionary<ParameterType, string> ParameterTypes = new()

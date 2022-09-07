@@ -17,5 +17,7 @@ public enum Zone
     Timesheets,
     TransactionTerms,
     Priorities,
-    Contacts
+    Contacts,
+    Quotes,
+    QuoteLineItems
 }
