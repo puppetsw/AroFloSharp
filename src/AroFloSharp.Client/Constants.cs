@@ -44,6 +44,7 @@ public static class Constants
     public const string TIMESHEETS = "timesheets";
     public const string TRANSACTION_TERMS = "transactionterms";
     public const string PRIORITIES = "priorities";
+    public const string CONTACTS = "contacts";
 
     // Other strings
 
@@ -64,7 +65,8 @@ public static class Constants
         {Zone.PermissionGroups, PERMISSION_GROUPS},
         {Zone.Timesheets, TIMESHEETS},
         {Zone.TransactionTerms, TRANSACTION_TERMS},
-        {Zone.Priorities, PRIORITIES}
+        {Zone.Priorities, PRIORITIES},
+        {Zone.Contacts, CONTACTS}
     };
 
     public static readonly Dictionary<ParameterType, string> ParameterTypes = new()

@@ -22,14 +22,14 @@ namespace AroFloSharp.Tests.Properties {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Resources {
+    internal class ContactsZoneResources {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal Resources() {
+        internal ContactsZoneResources() {
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace AroFloSharp.Tests.Properties {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("AroFloSharp.Tests.Properties.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("AroFloSharp.Tests.Properties.ContactsZoneResources", typeof(ContactsZoneResources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -61,11 +61,31 @@ namespace AroFloSharp.Tests.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to {&quot;status&quot;:&quot;0&quot;,&quot;statusmessage&quot;:&quot;Login OK&quot;,&quot;zoneresponse&quot;:{&quot;maxpageresults&quot;:&quot;500&quot;,&quot;pagenumber&quot;:&quot;1&quot;,&quot;queryresponsetimes&quot;:{&quot;locations&quot;:6,&quot;orgs&quot;:10,&quot;clients&quot;:115},&quot;currentpageresults&quot;:83,&quot;clients&quot;:[{&quot;contacts&quot;:[],&quot;locations&quot;:[{&quot;locationid&quot;:&quot;JSc6QyVRXFwgCg==&quot;,&quot;gpslat&quot;:&quot;0&quot;,&quot;postcode&quot;:&quot;2000&quot;,&quot;SiteContact&quot;:&quot;&quot;,&quot;state&quot;:&quot;NSW&quot;,&quot;suburb&quot;:&quot;Port of Sydney&quot;,&quot;SiteEmail&quot;:&quot;&quot;,&quot;customfields&quot;:[],&quot;locationname&quot;:&quot;HMAS Sydney&quot;,&quot;country&quot;:&quot;AUSTRALIA&quot;,&quot;gpslong&quot;:&quot;0&quot;,&quot;address&quot;:&quot;Pier 2, Harbour 4&quot;,&quot;archived&quot;:&quot;FALSE&quot;,&quot;SitePhone&quot;:&quot;&quot;}],&quot;phone [rest of string was truncated]&quot;;.
+        ///   Looks up a localized string similar to {
+        ///  &quot;status&quot;: &quot;0&quot;,
+        ///  &quot;statusmessage&quot;: &quot;Login OK&quot;,
+        ///  &quot;zoneresponse&quot;: {
+        ///    &quot;contacts&quot;: [
+        ///      {
+        ///        &quot;surname&quot;: &quot;Accounts&quot;,
+        ///        &quot;org&quot;: {
+        ///          &quot;orgid&quot;: &quot;JCdKUyxQICAgCg==&quot;,
+        ///          &quot;orgname&quot;: &quot;Myer&quot;
+        ///        },
+        ///        &quot;phone&quot;: &quot;&quot;,
+        ///        &quot;contacttype&quot;: &quot;client&quot;,
+        ///        &quot;email&quot;: &quot;&quot;,
+        ///        &quot;email2&quot;: &quot;&quot;,
+        ///        &quot;customfields&quot;: [],
+        ///        &quot;notes&quot;: [],
+        ///        &quot;givennames&quot;: &quot;Accounts&quot;,
+        ///        &quot;documentsandphotos&quot;: [],
+        ///        &quot;accesstype&quot;: &quot;Base&quot;,
+        ///        &quot;userid&quot;: &quot;JCQ6XyJ [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string ClientZone_JoinLocations {
+        internal static string ContactsResponseJson {
             get {
-                return ResourceManager.GetString("ClientZone_JoinLocations", resourceCulture);
+                return ResourceManager.GetString("ContactsResponseJson", resourceCulture);
             }
         }
     }

@@ -16,5 +16,6 @@ public enum Zone
     PermissionGroups,
     Timesheets,
     TransactionTerms,
-    Priorities
+    Priorities,
+    Contacts
 }

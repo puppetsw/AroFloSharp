@@ -12,7 +12,7 @@ public class ClientZoneTests
     [Test]
     public void Test_clients_zone_join_locations_json()
     {
-        var jsonStr = Resources.ClientZone_JoinLocations;
+        var jsonStr = ClientsZoneResources.ClientZone_JoinLocations;
         var clients = JsonNetSerializer.Deserialize<ClientsZone>(jsonStr);
         Assert.IsTrue(clients.ZoneResponse.Clients.Count > 0);
         Assert.IsTrue(clients.ZoneResponse.Clients.Any(x => x.Locations.Count > 0));
