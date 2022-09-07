@@ -1,8 +1,7 @@
-﻿using System.Threading.Tasks;
+﻿using System.Linq;
 using AroFloSharp.Client;
 using AroFloSharp.Client.Enums;
 using AroFloSharp.Client.Helpers;
-using AroFloSharp.Serialization.Models;
 using AroFloSharp.Serialization.Response;
 using AroFloSharp.Serialization.Serializer;
 using NUnit.Framework;
@@ -48,5 +47,7 @@ public class SerializationJsonTests
     {
         var projects = JsonNetSerializer.Deserialize<ProjectsZone>(_testData);
         Assert.IsTrue(projects?.ZoneResponse.Projects.Count > 0);
+        Assert.IsTrue(projects.ZoneResponse.Projects.Any(x => x.ProjectType != null));
+        Assert.IsTrue(projects.ZoneResponse.Projects.Any(x => x.ProjectType.Type != null));
     }
 }

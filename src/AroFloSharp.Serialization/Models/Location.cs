@@ -81,8 +81,9 @@ public class Location : AroFloObjectBase
     public List<CustomField> CustomFields { get; set; }
 
     [JsonPropertyName("notes")]
-    [XmlElement("notes")]
-    public string[] Notes { get; set; }
+    [XmlArrayItem("note")]
+    [XmlArray("notes")]
+    public List<Note> Notes { get; set; }
 
     [JsonPropertyName("SiteEmail")]
     [XmlElement("siteemail")]
@@ -120,29 +121,3 @@ public class LinkedTo
     [XmlElement("linkedtotype")]
     public string Type { get; set; }
 }
-
-
-// XML example
-// <location>
-//   <locationid>JSYqKyBSXFggCg==</locationid>
-//   <gpslat>-34.7293199477</gpslat>
-//   <postcode>5110</postcode>
-//   <sitecontact></sitecontact>
-//   <state>SA</state>
-//   <suburb>Burton</suburb>
-//   <siteemail></siteemail>
-//   <customfields></customfields>
-//   <linkedto>
-//   <linkedtoname>Boral Asphalt SA</linkedtoname>
-//   <linkedtoid>JSc6Uy1QTFwgCg==</linkedtoid>
-//   <linkedtotype>client</linkedtotype>
-//   </linkedto>
-//   <locationname>North HUB - Waterloo Corner Road</locationname>
-//   <notes></notes>
-//   <country>AUSTRALIA</country>
-//   <gpslong>138.580861384</gpslong>
-//   <address></address>
-//   <documentsandphotos></documentsandphotos>
-//   <archived>FALSE</archived>
-//   <sitephone></sitephone>
-// </location>

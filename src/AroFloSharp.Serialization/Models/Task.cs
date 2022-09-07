@@ -97,7 +97,7 @@ public class Task
     /// Requires join.
     /// </summary>
     [JsonPropertyName("documentsandphotos")]
-    [XmlArrayItem("documentsandphoto")]
+    [XmlArrayItem("documentandphoto")]
     [XmlArray("documentsandphotos")]
     public List<DocumentAndPhoto> DocumentAndPhotos { get; set; }
 
@@ -271,7 +271,7 @@ public class Task
 
     [JsonPropertyName("stage")]
     [XmlElement("stage")]
-    public TaskStage Stage { get; set; }
+    public Stage Stage { get; set; }
 
     [JsonPropertyName("duedatetime")]
     [XmlElement("duedatetime")]
@@ -460,15 +460,4 @@ public class TaskAssignedHistory
     [JsonIgnore]
     [XmlIgnore]
     public DateTime? TimeAssigned { get; set; }
-}
-
-public class TaskStage
-{
-    [JsonPropertyName("stageid")]
-    [XmlElement("stageid")]
-    public string StageId { get; set; }
-
-    [JsonPropertyName("stagename")]
-    [XmlElement("stagename")]
-    public string StageName { get; set; }
 }

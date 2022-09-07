@@ -13,8 +13,16 @@ public class StringJsonConverter : JsonConverter<string>
             var stringValue = reader.GetInt32();
             return stringValue.ToString();
         }
-        else if (reader.TokenType == JsonTokenType.String)
+
+        if (reader.TokenType == JsonTokenType.String)
         {
+            var text = reader.GetString();
+
+            if (string.IsNullOrWhiteSpace(text))
+            {
+                return null;
+            }
+
             return reader.GetString();
         }
 

@@ -16,7 +16,8 @@ public static class JsonNetSerializer
         Converters = { new DateTimeJsonConverter(),
                        new BooleanJsonConverter(),
                        new StringJsonConverter(),
-                       new NullableIntJsonConverter()
+                       new NullableIntJsonConverter(),
+                       new ProjectTypeConverter()
         }
     };
 

@@ -1,5 +1,7 @@
-﻿using System.Text.Json.Serialization;
+﻿#nullable enable
+using System.Text.Json.Serialization;
 using System.Xml.Serialization;
+using AroFloSharp.Serialization.Converters;
 
 namespace AroFloSharp.Serialization.Models;
 
@@ -31,7 +33,7 @@ public class Project : AroFloObjectBase
 
     [JsonPropertyName("projecttype")]
     [XmlElement("projecttype")]
-    public ProjectType ProjectType { get; set; }
+    public ProjectType? ProjectType { get; set; }
 
     [JsonPropertyName("custon")]
     [XmlElement("custon")]

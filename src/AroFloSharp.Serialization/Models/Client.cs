@@ -35,8 +35,9 @@ public class Client : AroFloObjectBase
     public string Abn { get; set; }
 
     [JsonPropertyName("notes")]
+    [XmlArrayItem("note")]
     [XmlArray("notes")]
-    public string[] Notes { get; set; }
+    public List<Note> Notes { get; set; }
 
     [JsonPropertyName("datetimeinserted")]
     [XmlElement("datetimeinserted")]

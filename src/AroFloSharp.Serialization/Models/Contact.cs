@@ -68,8 +68,9 @@ public class Contact : AroFloObjectBase
     public List<CustomField> CustomFields { get; set; }
 
     [JsonPropertyName("notes")]
-    [XmlElement("notes")]
-    public string[] Notes { get; set; }
+    [XmlArrayItem("note")]
+    [XmlArray("notes")]
+    public List<Note> Notes { get; set; }
 
     [JsonPropertyName("accesstype")]
     [XmlElement("accesstype")]
