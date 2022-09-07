@@ -24,6 +24,11 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>ClientsZoneResources.resx</DependentUpon>
     </Compile>
+    <Compile Update="Properties\LocationsZoneResources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>LocationsZoneResources.resx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Update="Properties\ContactsZoneResources.resx">
@@ -33,6 +38,10 @@
     <EmbeddedResource Update="Properties\ClientsZoneResources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>ClientsZoneResources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Properties\LocationsZoneResources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>LocationsZoneResources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
 </Project>
