@@ -122,6 +122,18 @@ Studio 2022 installed - you can download the Community edition from
 `dotnet build ./src/AroFloSharp.Client.csproj`<br>
 `dotnet build ./src/AroFloSharp.Serialization.csproj`
 
+Prior to building the Client project you will need to add a file called `Credentials.cs` containining your API keys for AroFlo. Please don't forget to ignore this file when submitting pull requests.
+
+```cs
+public static class Credentials
+{
+    public const string SECRET_KEY = "";
+    public const string U_ENCODE = "";
+    public const string P_ENCODE = "";
+    public const string ORG_ENCODE = "";
+}
+```
+
 # Contribute
 Visit the [Contributor Guidelines](https://github.com/puppetsw/AroFloSharp/blob/master/CONTRIBUTING.md)
 for more details. All contributors are expected to follow our
