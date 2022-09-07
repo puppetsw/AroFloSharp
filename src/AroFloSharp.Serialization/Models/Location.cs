@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Text.Json.Serialization;
 using System.Xml.Serialization;
@@ -73,6 +74,11 @@ namespace AroFloSharp.Serialization.Models
         [JsonPropertyName("address")]
         [XmlElement("address")]
         public string Address { get; set; }
+
+        [JsonPropertyName("customfields")]
+        [XmlArrayItem("customfield")]
+        [XmlArray("customfields")]
+        public List<CustomField> CustomFields { get; set; }
     }
 }
 

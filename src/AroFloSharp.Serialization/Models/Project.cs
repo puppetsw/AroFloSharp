@@ -11,7 +11,7 @@ public class Project : AroFloObjectBase
 
     [JsonPropertyName("client")]
     [XmlElement("client")]
-    public Client Client { get; set; }
+    public SmallClient Client { get; set; }
 
     [JsonPropertyName("location")]
     [XmlElement("location")]

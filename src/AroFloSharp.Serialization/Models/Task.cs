@@ -308,7 +308,7 @@ public class Task
 
     [JsonPropertyName("client")]
     [XmlElement("client")]
-    public Client Client { get; set; }
+    public SmallClient Client { get; set; }
 
     [JsonPropertyName("taskid")]
     [XmlElement("taskid")]

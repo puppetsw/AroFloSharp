@@ -15,7 +15,7 @@ public class Priority : AroFloObjectBase
 
     [JsonPropertyName("responseminutes")]
     [XmlElement("responseminutes")]
-    public string ResponseMinutes { get; set; }
+    public int ResponseMinutes { get; set; }
 
     [JsonPropertyName("archived")]
     [XmlElement("archived")]
@@ -44,5 +44,4 @@ public class Priority : AroFloObjectBase
     [JsonPropertyName("priorityno")]
     [XmlElement("priorityno")]
     public int ResponseNumber { get; set; }
-
 }

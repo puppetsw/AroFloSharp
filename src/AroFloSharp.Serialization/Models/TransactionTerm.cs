@@ -14,6 +14,11 @@ public class TransactionTerm : AroFloObjectBase
     [XmlElement("transactionterm")]
     public string TransactionTermText { get; set; }
 
+    [JsonPropertyName("transactiontermnote")]
+
+    [XmlElement("transactiontermnote")]
+    public string TransactionTermNote { get; set; }
+
     [JsonPropertyName("termdays")]
     [XmlElement("termdays")]
     public int? TermDays { get; set; }
