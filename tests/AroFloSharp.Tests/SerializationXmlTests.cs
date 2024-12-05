@@ -8,6 +8,7 @@ using AroFloSharp.Serialization.Response;
 using AroFloSharp.Serialization.Serializer;
 using AroFloSharp.Tests.Helpers;
 using NUnit.Framework;
+using Task = System.Threading.Tasks.Task;
 
 namespace AroFloSharp.Tests;
 
@@ -40,7 +41,7 @@ public class SerializationXmlTests
     [Test]
     public void Test_xml_deserialization()
     {
-        var projects = XmlNetSerializer.Deserialize<ProjectZone>(_testData);
+        var projects = XmlNetSerializer.Deserialize<ProjectsZone>(_testData);
         Assert.IsTrue(projects.ZoneResponse.Projects.Count > 0);
     }
 

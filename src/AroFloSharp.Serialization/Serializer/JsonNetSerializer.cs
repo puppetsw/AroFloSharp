@@ -12,7 +12,13 @@ public static class JsonNetSerializer
     private static readonly JsonSerializerOptions s_jsonSerializerOptions = new()
     {
         NumberHandling = JsonNumberHandling.AllowReadingFromString,
-        Converters = { new DateTimeJsonConverter() }
+        DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingDefault,
+        Converters = { new DateTimeJsonConverter(),
+                       new BooleanJsonConverter(),
+                       new StringJsonConverter(),
+                       new NullableIntJsonConverter(),
+                       new ProjectTypeConverter()
+        }
     };
 
     public static Response<T>? Deserialize<T>(string? response) where T : ZoneResponseBase

@@ -16,6 +16,8 @@ public class AroFloSharpClient : IDisposable
     private readonly Configuration _config;
     private readonly HttpClient _httpClient = new();
 
+    public ParameterCollection Parameters { get; } = new();
+
     public Status Status { get; private set; }
 
     public string StatusMessage { get; private set; } = string.Empty;
@@ -29,17 +31,16 @@ public class AroFloSharpClient : IDisposable
 
     public async Task<string?> GetResponseAsync(Action<ParameterCollection>? parameterCollection)
     {
-        var parameters = new ParameterCollection();
-        parameterCollection?.Invoke(parameters);
+        parameterCollection?.Invoke(Parameters);
 
-        if (parameters.All(parameter => parameter.GetType() != typeof(ZoneParameter)))
+        if (Parameters.All(parameter => parameter.GetType() != typeof(ZoneParameter)))
         {
             throw new InvalidOperationException("No ZoneParameter in ParameterCollection");
         }
 
         using var request = new RequestMessage();
         request.Method = HttpMethod.Get;
-        request.Parameters.AddRange(parameters);
+        request.Parameters.AddRange(Parameters);
         request.RequestUri = new Uri($"{Constants.AROFLO_API_URL}?{request.Parameters}");
         request.AddDefaultHeaders(_config);
 
@@ -57,6 +58,7 @@ public class AroFloSharpClient : IDisposable
 
     public void Dispose()
     {
+        Parameters.Clear();
         _httpClient.Dispose();
     }
 }

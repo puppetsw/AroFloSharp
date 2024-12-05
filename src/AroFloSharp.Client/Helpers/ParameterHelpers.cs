@@ -1,4 +1,5 @@
-﻿using AroFloSharp.Client.Enums;
+﻿using System.Collections.Generic;
+using AroFloSharp.Client.Enums;
 using AroFloSharp.Client.Parameters;
 
 namespace AroFloSharp.Client.Helpers;
@@ -83,6 +84,13 @@ public static class ParameterHelpers
     }
 
     public static JoinParameter AddJoin(this ParameterCollection parameterCollection, string joinOn)
+    {
+        var joinParameter = new JoinParameter(joinOn);
+        parameterCollection.Add(joinParameter);
+        return joinParameter;
+    }
+
+    public static JoinParameter AddJoin(this ParameterCollection parameterCollection, params string[] joinOn)
     {
         var joinParameter = new JoinParameter(joinOn);
         parameterCollection.Add(joinParameter);

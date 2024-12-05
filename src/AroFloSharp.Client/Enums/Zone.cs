@@ -11,5 +11,13 @@ public enum Zone
     Locations,
     Tasks,
     Users,
-    LastUpdate
+    LastUpdate,
+    BusinessUnits,
+    PermissionGroups,
+    Timesheets,
+    TransactionTerms,
+    Priorities,
+    Contacts,
+    Quotes,
+    QuoteLineItems
 }
